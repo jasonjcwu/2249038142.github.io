@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="python 课程设计 Day1 大一的时候自学过Python，在慕课上看过两个课程，跟着课程写过个豆瓣爬虫，到现在都忘得差不多了，正好课程设计复习一下，还可以了解一下Django后台框架👍  课后习题求s=a+aa+aaa+aaaa+aa…a的值求s=a+aa+aaa+aaaa+aa…a的值 12345678a = int(input(&apos;请输入a（1-9）:&apos;))n = int(input(&apos;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python 课程设计 Day1">
+<meta property="og:url" content="http://yoursite.com/2019/06/17/python 课程设计 Day1/index.html">
+<meta property="og:site_name" content="Jason&#39;s Bolg">
+<meta property="og:description" content="python 课程设计 Day1 大一的时候自学过Python，在慕课上看过两个课程，跟着课程写过个豆瓣爬虫，到现在都忘得差不多了，正好课程设计复习一下，还可以了解一下Django后台框架👍  课后习题求s=a+aa+aaa+aaaa+aa…a的值求s=a+aa+aaa+aaaa+aa…a的值 12345678a = int(input(&apos;请输入a（1-9）:&apos;))n = int(input(&apos;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="c:%5CUsers%5C%E5%90%B4%E4%BD%B3%E5%AE%B8%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1560772284334.png">
+<meta property="og:image" content="c:%5CUsers%5C%E5%90%B4%E4%BD%B3%E5%AE%B8%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1560772352981.png">
+<meta property="og:updated_time" content="2019-06-18T02:17:07.243Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python 课程设计 Day1">
+<meta name="twitter:description" content="python 课程设计 Day1 大一的时候自学过Python，在慕课上看过两个课程，跟着课程写过个豆瓣爬虫，到现在都忘得差不多了，正好课程设计复习一下，还可以了解一下Django后台框架👍  课后习题求s=a+aa+aaa+aaaa+aa…a的值求s=a+aa+aaa+aaaa+aa…a的值 12345678a = int(input(&apos;请输入a（1-9）:&apos;))n = int(input(&apos;">
+<meta name="twitter:image" content="c:%5CUsers%5C%E5%90%B4%E4%BD%B3%E5%AE%B8%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1560772284334.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/06/17/python 课程设计 Day1/">
+
+
+
+
+
+  <title>python 课程设计 Day1 | Jason's Bolg</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jason's Bolg</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Jason studying and sharing place</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/17/python 课程设计 Day1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jason">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jason's Bolg">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python 课程设计 Day1</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-17T23:42:59+08:00">
+                2019-06-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="python-课程设计-Day1"><a href="#python-课程设计-Day1" class="headerlink" title="python 课程设计 Day1"></a>python 课程设计 Day1</h1><blockquote>
+<p>大一的时候自学过Python，在慕课上看过两个课程，跟着课程写过个豆瓣爬虫，到现在都忘得差不多了，正好课程设计复习一下，还可以了解一下Django后台框架👍</p>
+</blockquote>
+<h3 id="课后习题"><a href="#课后习题" class="headerlink" title="课后习题"></a>课后习题</h3><p><strong>求s=a+aa+aaa+aaaa+aa…a的值求s=a+aa+aaa+aaaa+aa…a的值</strong></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a = int(input(<span class="string">'请输入a（1-9）:'</span>))</span><br><span class="line">n = int(input(<span class="string">'请输入要加几次:'</span>))</span><br><span class="line">sum=<span class="number">0</span></span><br><span class="line">s = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n): <span class="comment">#通过for循环</span></span><br><span class="line">    s += a * (<span class="number">10</span>**i) <span class="comment">#从个位加到最高位得出最后一个a</span></span><br><span class="line">    sum +=s <span class="comment">#每次得到的结果累加</span></span><br><span class="line">print(sum)</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:%5CUsers%5C%E5%90%B4%E4%BD%B3%E5%AE%B8%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1560772284334.png" alt="1560772284334"></p>
+<p>计算器验证得：</p>
+<p><img src="C:%5CUsers%5C%E5%90%B4%E4%BD%B3%E5%AE%B8%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1560772352981.png" alt="1560772352981"></p>
+<h3 id="课堂习题（笔记）"><a href="#课堂习题（笔记）" class="headerlink" title="课堂习题（笔记）"></a>课堂习题（笔记）</h3><ol>
+<li><p><strong>青蛙爬井的问题</strong></p>
+<p> 思路：当白天爬的高度大于深度之后就跳出循环</p>
+</li>
+</ol>
+<figure class="highlight plain"><figcaption><span>python</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">h = int(input(&apos;请输入深度&apos;))</span><br><span class="line">m = int(input(&apos;请输入爬多少米&apos;))</span><br><span class="line">n = int(input(&apos;请输入掉多少米&apos;))</span><br><span class="line">day = 1</span><br><span class="line">deep = 0</span><br><span class="line">while deep &lt; h:</span><br><span class="line">    deep += m</span><br><span class="line">    if deep &gt;= h:</span><br><span class="line">        break</span><br><span class="line">    else:</span><br><span class="line">        deep -= n</span><br><span class="line">        day += 1</span><br><span class="line">print(&quot;爬了&#123;0&#125;天&quot;.format(day))</span><br></pre></td></tr></table></figure>
+
+<p>2.<strong>打印100以内的所有质数</strong></p>
+<p>​    思路：立flag除与等于零，说明能被某数整除</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>, <span class="number">101</span>):</span><br><span class="line">    j = <span class="number">2</span></span><br><span class="line">    flag = <span class="literal">True</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">2</span>, i):</span><br><span class="line">        <span class="keyword">if</span> i % j == <span class="number">0</span>:</span><br><span class="line">            flag = <span class="literal">False</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> flag:</span><br><span class="line">        print(i)</span><br></pre></td></tr></table></figure>
+
+<p>3.<strong>打印100~999之间的水仙花数</strong></p>
+<p>水仙花数：水仙花数是指一个3 位数，它的每个位上的数字的 3次幂之和等于它本身</p>
+<p>​    思路：通过除整除余取数每个十百位</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="number">100</span></span><br><span class="line"><span class="keyword">while</span> n &lt;= <span class="number">999</span>:</span><br><span class="line">    hundred = n // <span class="number">100</span></span><br><span class="line">    ten = n // <span class="number">10</span> % <span class="number">10</span></span><br><span class="line">    unit = n % <span class="number">10</span></span><br><span class="line">    <span class="keyword">if</span> hundred ** <span class="number">3</span> + ten ** <span class="number">3</span> + unit ** <span class="number">3</span> == n:</span><br><span class="line">        print(n)</span><br><span class="line">    n += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>4.<strong>闰年的判断</strong></p>
+<p>普通闰年:能被4整除但不能被100整除的年份为普通闰年。（如2004年就是闰年，1900年不是闰年）</p>
+<p>世纪闰年:能被400整除的为世纪闰年。（如2000年是世纪闰年，1900年不是世纪闰年）</p>
+<p>​    思路：根据题意做几个条件判断</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">year = int(input(&quot;please enter year: &quot;))</span><br><span class="line">if (year % 400) == 0:</span><br><span class="line">    print(&quot;世纪闰年&quot;)</span><br><span class="line">elif (year % 4) == 0 and (year % 100) != 0:</span><br><span class="line">    print(&quot;是普通闰年&quot;)</span><br><span class="line">else:</span><br><span class="line">    print(&quot;不是闰年&quot;)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/17/小程序 '冥想歇息' 介绍文档 /" rel="next" title="小程序 '冥想歇息' 介绍文档">
+                <i class="fa fa-chevron-left"></i> 小程序 '冥想歇息' 介绍文档
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/18/写给学弟学妹的学习小程序经验总结/" rel="prev" title="写给学弟学妹的学习小程序经验总结">
+                写给学弟学妹的学习小程序经验总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Jason</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/2249038142" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:jiachenwu@.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python-课程设计-Day1"><span class="nav-number">1.</span> <span class="nav-text">python 课程设计 Day1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#课后习题"><span class="nav-number">1.0.1.</span> <span class="nav-text">课后习题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#课堂习题（笔记）"><span class="nav-number">1.0.2.</span> <span class="nav-text">课堂习题（笔记）</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jason</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

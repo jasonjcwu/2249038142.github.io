@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="写给学弟学妹的学习小程序经验总结 此篇文章面向前端入门以及小程序新手，入门爬坑可以观看  我个人跟着教程写过一个电影小程序，然后就直接开始写比赛的小程序了，对小程序有一定认识，但理解还是比较浅的，如有错误欢迎批评指正。 学习小程序的前置知识 前端使用的是微信自定义的一套规范wxml+wxss+json+js,其本质还是html+css+javascript.打好基础才能快速学好框架。  编译器推荐">
+<meta property="og:type" content="article">
+<meta property="og:title" content="写给学弟学妹的学习小程序经验总结">
+<meta property="og:url" content="http://yoursite.com/2019/06/18/写给学弟学妹的学习小程序经验总结/index.html">
+<meta property="og:site_name" content="Jason&#39;s Bolg">
+<meta property="og:description" content="写给学弟学妹的学习小程序经验总结 此篇文章面向前端入门以及小程序新手，入门爬坑可以观看  我个人跟着教程写过一个电影小程序，然后就直接开始写比赛的小程序了，对小程序有一定认识，但理解还是比较浅的，如有错误欢迎批评指正。 学习小程序的前置知识 前端使用的是微信自定义的一套规范wxml+wxss+json+js,其本质还是html+css+javascript.打好基础才能快速学好框架。  编译器推荐">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="c:%5CUsers%5C%E5%90%B4%E4%BD%B3%E5%AE%B8%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1560426511329.png">
+<meta property="og:image" content="c:%5CUsers%5C%E5%90%B4%E4%BD%B3%E5%AE%B8%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1560427053684.png">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/1/166cd7445ba24957?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:updated_time" content="2019-06-18T03:06:20.726Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="写给学弟学妹的学习小程序经验总结">
+<meta name="twitter:description" content="写给学弟学妹的学习小程序经验总结 此篇文章面向前端入门以及小程序新手，入门爬坑可以观看  我个人跟着教程写过一个电影小程序，然后就直接开始写比赛的小程序了，对小程序有一定认识，但理解还是比较浅的，如有错误欢迎批评指正。 学习小程序的前置知识 前端使用的是微信自定义的一套规范wxml+wxss+json+js,其本质还是html+css+javascript.打好基础才能快速学好框架。  编译器推荐">
+<meta name="twitter:image" content="c:%5CUsers%5C%E5%90%B4%E4%BD%B3%E5%AE%B8%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1560426511329.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/06/18/写给学弟学妹的学习小程序经验总结/">
+
+
+
+
+
+  <title>写给学弟学妹的学习小程序经验总结 | Jason's Bolg</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jason's Bolg</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Jason studying and sharing place</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/18/写给学弟学妹的学习小程序经验总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jason">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jason's Bolg">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">写给学弟学妹的学习小程序经验总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-18T09:21:28+08:00">
+                2019-06-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="写给学弟学妹的学习小程序经验总结"><a href="#写给学弟学妹的学习小程序经验总结" class="headerlink" title="写给学弟学妹的学习小程序经验总结"></a>写给学弟学妹的学习小程序经验总结</h1><blockquote>
+<p>此篇文章面向前端入门以及小程序新手，入门爬坑可以观看</p>
+</blockquote>
+<p>我个人跟着教程写过一个电影小程序，然后就直接开始写比赛的小程序了，对小程序有一定认识，但理解还是比较浅的，如有错误欢迎批评指正。</p>
+<h3 id="学习小程序的前置知识"><a href="#学习小程序的前置知识" class="headerlink" title="学习小程序的前置知识"></a>学习小程序的前置知识</h3><ul>
+<li><p>前端使用的是微信自定义的一套规范<code>wxml</code>+<code>wxss</code>+<code>json</code>+<code>js</code>,其本质还是<code>html</code>+<code>css</code>+<code>javascript</code>.打好基础才能快速学好框架。</p>
+</li>
+<li><p>编译器推荐：VS Code,有非常多的插件，代码补全，格式修正，颜色高亮，版本控制</p>
+</li>
+<li><p>推荐网站：<a href="https://developer.mozilla.org/" target="_blank" rel="noopener">MDN</a>有标准语法文档方法函数忘记了可以去这个网站查，<a href="https://www.freecodecamp.cn/" target="_blank" rel="noopener">freecodecamp</a>编程闯关、完成挑战</p>
+</li>
+<li><p>第一阶段：html，css，推荐书籍：<a href="https://www.douban.com/link2/?url=https%3A%2F%2Fbook.douban.com%2Fsubject%2F25752357%2F&query=html&cat_id=1001&type=search&pos=0" target="_blank" rel="noopener">Head First HTML与CSS（第2版）</a><a href="https://www.douban.com/link2/?url=https%3A%2F%2Fbook.douban.com%2Fsubject%2F25786074%2F&query=html&cat_id=1001&type=search&pos=6" target="_blank" rel="noopener">HTML5权威指南 </a><a href="https://www.douban.com/link2/?url=https%3A%2F%2Fbook.douban.com%2Fsubject%2F26745943%2F&query=css&cat_id=1001&type=search&pos=4" target="_blank" rel="noopener">CSS揭秘 </a><a href="https://www.douban.com/link2/?url=https%3A%2F%2Fbook.douban.com%2Fsubject%2F27615777%2F&query=css&cat_id=1001&type=search&pos=19" target="_blank" rel="noopener">CSS世界</a>可以边看书或者视频边写代码。快速熟悉网页框架结构。</p>
+</li>
+<li><p>第二阶段：JavaScript,http这一阶段基础一定要打牢，前端的绝大部分都是以javascript为基本的。推荐书籍：<a href="http://book.douban.com/subject/6038371/" target="_blank" rel="noopener">JavaScript DOM编程艺术 （第2版）</a><a href="http://book.douban.com/subject/10546125/" target="_blank" rel="noopener">JavaScript高级程序设计（第3版）</a><a href="http://book.douban.com/subject/3590768/" target="_blank" rel="noopener">JavaScript语言精粹</a><a href="https://www.douban.com/link2/?url=https%3A%2F%2Fbook.douban.com%2Fsubject%2F27127030%2F&query=es6&cat_id=1001&type=search&pos=1" target="_blank" rel="noopener">ES6标准入门（第3版）</a><a href="https://www.douban.com/link2/?url=https%3A%2F%2Fbook.douban.com%2Fsubject%2F27072230%2F&query=es6&cat_id=1001&type=search&pos=0" target="_blank" rel="noopener">深入理解ES6</a>如果觉得难可以先看视频，再看书，中间跟着写一些小demo，学完后做一个完整的网页（学习所有知识都可以按照此路径，视频：快速了解 &gt; 书籍：深入探究 &gt; 实践：理解巩固）。</p>
+</li>
+<li><p>扩展知识：学一点点linux和git对合作开发有更高的效率。</p>
+</li>
+<li><p>先学会了一些框架（vue，react）可以更快地上手小程序。</p>
+</li>
+</ul>
+<h3 id="小程序的学习"><a href="#小程序的学习" class="headerlink" title="小程序的学习"></a>小程序的学习</h3><ul>
+<li><p>官方学习视频<a href="http://www.xuetangx.com/courses/course-v1:TsinghuaX+2018032801X+2018_T1/about" target="_blank" rel="noopener">《学做小程序》</a></p>
+</li>
+<li><p>官方学习文档<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/quickstart/" target="_blank" rel="noopener">《小程序微信官方文档》</a></p>
+</li>
+<li><p>通过看文档和教学视频学习小程序</p>
+<hr>
+</li>
+</ul>
+<h3 id="入门指导"><a href="#入门指导" class="headerlink" title="入门指导"></a>入门指导</h3><h4 id="1-申请账号"><a href="#1-申请账号" class="headerlink" title="1.申请账号"></a>1.申请账号</h4><p>进入<a href="https://mp.weixin.qq.com/wxopen/waregister?action=step1" target="_blank" rel="noopener">小程序注册页</a><br>可以在小程序后台，依次点击「<strong>设置</strong>」-&gt;「<strong>开发设置</strong>」获取到这个「<strong>AppID</strong>」自己保存：AppID相当于小程序平台的身份证</p>
+<h4 id="2-安装开发工具"><a href="#2-安装开发工具" class="headerlink" title="2.安装开发工具"></a>2.安装开发工具</h4><p> 前往 <a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html" target="_blank" rel="noopener">开发者工具下载页面</a> </p>
+<p>稳定版 <a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/stable.html" target="_blank" rel="noopener">Stable Build</a> (1.02.1904090)</p>
+<p><a href="https://servicewechat.com/wxa-dev-logic/download_redirect?type=x64&from=mpwiki&download_version=1021904090&version_type=1" target="_blank" rel="noopener">Windows 64</a> 、 <a href="https://servicewechat.com/wxa-dev-logic/download_redirect?type=ia32&from=mpwiki&download_version=1021904090&version_type=1" target="_blank" rel="noopener">Windows 32</a> 、 <a href="https://servicewechat.com/wxa-dev-logic/download_redirect?type=darwin&from=mpwiki&download_version=1021904090&version_type=1" target="_blank" rel="noopener">macOS</a></p>
+<p>根据不同操作系统下载相应版本</p>
+<h4 id="3-创建项目"><a href="#3-创建项目" class="headerlink" title="3.创建项目"></a>3.创建项目</h4><p><img src="C:%5CUsers%5C%E5%90%B4%E4%BD%B3%E5%AE%B8%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1560426511329.png" alt="1560426511329"></p>
+<h4 id="4-在VS-Code中编写代码，在小程序开发者工具里调试"><a href="#4-在VS-Code中编写代码，在小程序开发者工具里调试" class="headerlink" title="4.在VS Code中编写代码，在小程序开发者工具里调试"></a>4.在VS Code中编写代码，在小程序开发者工具里调试</h4><p>VS Code官网下载：<a href="https://link.juejin.im/?target=https%3A%2F%2Fcode.visualstudio.com%2F" target="_blank" rel="noopener">code.visualstudio.com/</a></p>
+<p>点击「<strong>扩展</strong>」，安装小程序插件推荐「<strong>minapp</strong>」「<strong>wxml</strong>」「<strong>wechat-snippet</strong>」,其他插件自行选择</p>
+<p><img src="C:%5CUsers%5C%E5%90%B4%E4%BD%B3%E5%AE%B8%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1560427053684.png" alt="1560427053684"></p>
+<hr>
+<h4 id="文件构成"><a href="#文件构成" class="headerlink" title="文件构成"></a>文件构成</h4><p>小程序一般由下面四类文件组成：</p>
+<ul>
+<li><p><strong>json</strong>：<strong>配置文件</strong></p>
+<p><strong>小程序全局配置</strong>：「<code>app.json</code>」</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> //配置页面路径</span><br><span class="line">"pages": [</span><br><span class="line">​    "pages/index/index",</span><br><span class="line">​    "pages/logs/logs"</span><br><span class="line">  ],</span><br><span class="line">//配置窗体样式</span><br><span class="line">  "window": &#123;</span><br><span class="line">​    "backgroundTextStyle": "light",</span><br><span class="line">      //顶部导航样式</span><br><span class="line">​    "navigationBarBackgroundColor": "#fff",</span><br><span class="line">​    "navigationBarTitleText": "WeChat",</span><br><span class="line">​    "navigationBarTextStyle": "black"</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>  <strong>开发工具配置</strong>：「<code>project.config.json</code>」</p>
+<p>开发者工具的统一配置，界面设置以及云函数相关</p>
+<p><strong>单页面配置</strong>：「<code>page.json</code>」</p>
+<p>对本页面的窗口表现进行配置，会覆盖app.json的window中相同的配置项</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>wxml</strong>：<strong>模板文件</strong>，AS:HTML</p>
+<p>1.跟html很像，类比<code>&lt;div&gt;</code>=<code>&lt;view&gt;</code>,<code>&lt;p&gt;</code>=<code>&lt;text&gt;</code>,<code>&lt;a&gt;</code>=<code>&lt;navigator&gt;</code>等</p>
+<p>2.与html不同的是，可以在标签中加判断或循环语句<code>wx:if、else/wx:for</code>还可以使用三元运算符等</p>
+<p>3.在标签里使用<code></code>可以读取当前页面JS文件<code>data:{motto:&#39;hello World&#39;}</code>data对象中的数据</p>
+<p>4.在标签中通过<code>bindtap/catch=&quot;functionName&quot;</code>冒泡/捕获绑定事件</p>
+</li>
+<li><p><strong>wxss</strong>：<strong>样式文件</strong>，AS:CSS</p>
+<p>1.<code>2rpx</code>=<code>1px</code>小程序根据不同屏幕大小，底层来换算像素单位</p>
+<p>2.flex布局：推荐阮一峰老师的博客<a href="https://www.baidu.com/link?url=4VrMDpw1nzyqCaGnK_mukwLBT83ykwtFxsLpZbW761lChQO8RPPf7KI4YedgAhLe09m00mpVsJI4d2TrUyyZ2DxMSTwvMEbW1vLjItopifq&wd=&eqid=84902dac000fec12000000025d024590" target="_blank" rel="noopener"><em>Flex</em> 布局教程:语法篇 </a><a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank" rel="noopener">Flex 布局教程：实战篇</a></p>
+</li>
+<li><p><strong>js</strong>：<strong>脚本逻辑文件</strong></p>
+<p><strong>1.页面生命周期**</strong></p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pages/life.js 页面初始化时，小程序自动给我们创立了生命周期函数</span></span><br><span class="line">Page(&#123;</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 页面的初始数据,可以使用this.setData(&#123; msg: "Hello World" &#125;)传入data对象wxml可以从中获取数据</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  data: &#123;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 生命周期函数--监听页面加载</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  onLoad: <span class="function"><span class="keyword">function</span> (<span class="params">options</span>) </span>&#123;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 生命周期函数--监听页面初次渲染完成</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  onReady: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 生命周期函数--监听页面显示</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  onShow: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 生命周期函数--监听页面隐藏</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  onHide: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 生命周期函数--监听页面卸载</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  onUnload: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 页面相关事件处理函数--监听用户下拉动作</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  onPullDownRefresh: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 页面上拉触底事件的处理函数</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  onReachBottom: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 用户点击右上角分享</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  onShareAppMessage: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>很多人说<code>this.setData（）</code>传不进数据，有人回答在函数里先申明个<code>var that=this</code>,这种回答很敷衍，提问人还是不会懂，治标不治本。推荐不懂的同学去了解一下this指向原理：<strong>this 永远指向最后调用它的那个对象</strong>，多看几篇技术文章<a href="https://juejin.im/post/59bfe84351882531b730bac2" target="_blank" rel="noopener"><em>this</em>、apply、call、bind</a>、<a href="https://juejin.im/entry/584939baac502e006c59448e" target="_blank" rel="noopener">Javascript 深入浅出 <em>this</em></a></p>
+<p><strong>2.发起http请求</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//仅为示例</span></span><br><span class="line">wx.request(&#123;</span><br><span class="line">  url: <span class="string">'http://test.php'</span>, </span><br><span class="line">  data: &#123;</span><br><span class="line">    x: <span class="string">''</span>,</span><br><span class="line">    y: <span class="string">''</span></span><br><span class="line">  &#125;,</span><br><span class="line">     method:<span class="string">'GET'</span>\<span class="string">'POST'</span>,</span><br><span class="line">  header: &#123;</span><br><span class="line">    <span class="string">'content-type'</span>: <span class="string">'application/json'</span> </span><br><span class="line">  &#125;,</span><br><span class="line">  success (res) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res.data)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>通过请求后台接口，发送获取数据</p>
+<p><strong>3.用户登陆</strong></p>
+<p>基本每个小程序都少不了登陆流程</p>
+<p><a href="https://juejin.im/post/5bda7bfb6fb9a02228233f45" target="_blank" rel="noopener">彻底搞懂小程序登陆流程</a></p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/11/1/166cd7445ba24957?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<hr>
+<h3 id="个人小结"><a href="#个人小结" class="headerlink" title="个人小结"></a>个人小结</h3><p> 之前喜欢计算机，但是摸不到门路，大约一年前加入工作室，因为比较喜欢写完代码就看到界面交互的效果，确立了学习方向：前端。上学期入门了html,CSS ,JavaScript期间写了几个网页，巩固了一下基础.这学期写完工作室官网，刚学完ES6就开始小程序大赛了。</p>
+<p>我们工作室是独立非学校、非盈利的计算机学习组织主要学习互联网开发，前端后端，设计，三个方向，每周30小时学习打卡，一次学习经验分享会，让我们互相学习监督，共同成长。感谢前辈创业，学长引路，让我从单喜欢计算机到有了专业方向。</p>
+<p>前辈传给我们，我们再教学弟学妹，这种传承的精神源自于我们有共同理想，共同爱好，并为之付出努力。我记得王小波在维也纳看三个青年在街头演奏的一席话：<strong>青年的动人之处，就在于勇气，和他们的远大前程。</strong></p>
+<p>希望能给学弟学妹们，前端刚入门者一些指导。</p>
+<p>喜欢前端、计算机志同道合的朋友可以加WX交流学习经验：wjcyx99</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/17/python 课程设计 Day1/" rel="next" title="python 课程设计 Day1">
+                <i class="fa fa-chevron-left"></i> python 课程设计 Day1
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Jason</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/2249038142" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:jiachenwu@.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#写给学弟学妹的学习小程序经验总结"><span class="nav-number">1.</span> <span class="nav-text">写给学弟学妹的学习小程序经验总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#学习小程序的前置知识"><span class="nav-number">1.0.1.</span> <span class="nav-text">学习小程序的前置知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小程序的学习"><span class="nav-number">1.0.2.</span> <span class="nav-text">小程序的学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#入门指导"><span class="nav-number">1.0.3.</span> <span class="nav-text">入门指导</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-申请账号"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">1.申请账号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-安装开发工具"><span class="nav-number">1.0.3.2.</span> <span class="nav-text">2.安装开发工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-创建项目"><span class="nav-number">1.0.3.3.</span> <span class="nav-text">3.创建项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-在VS-Code中编写代码，在小程序开发者工具里调试"><span class="nav-number">1.0.3.4.</span> <span class="nav-text">4.在VS Code中编写代码，在小程序开发者工具里调试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件构成"><span class="nav-number">1.0.3.5.</span> <span class="nav-text">文件构成</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#个人小结"><span class="nav-number">1.0.4.</span> <span class="nav-text">个人小结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jason</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
