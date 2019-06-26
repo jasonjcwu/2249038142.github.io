@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/2249038142.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/2249038142.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/2249038142.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/2249038142.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/2249038142.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/2249038142.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/2249038142.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="爬虫,练习,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="python 爬虫练习五个小练习值得注意的点 使用xpath爬取的是一个list要取list[0]得到字符串  一些格式，生数据处理，   使用12345678* Python strip() 方法用于移除字符串头尾指定的字符（默认为空格或换行符）或字符序列。      **注意：**该方法只能删除开头或是结尾的字符，不能删除中间部分的字符* 使用正则删除多余字符    ```b = re.com">
+<meta name="keywords" content="爬虫,练习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python 爬虫练习">
+<meta property="og:url" content="http://yoursite.com/2019/06/26/python-爬虫练习/index.html">
+<meta property="og:site_name" content="Jason&#39;s Blog">
+<meta property="og:description" content="python 爬虫练习五个小练习值得注意的点 使用xpath爬取的是一个list要取list[0]得到字符串  一些格式，生数据处理，   使用12345678* Python strip() 方法用于移除字符串头尾指定的字符（默认为空格或换行符）或字符序列。      **注意：**该方法只能删除开头或是结尾的字符，不能删除中间部分的字符* 使用正则删除多余字符    ```b = re.com">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-26T03:05:43.948Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python 爬虫练习">
+<meta name="twitter:description" content="python 爬虫练习五个小练习值得注意的点 使用xpath爬取的是一个list要取list[0]得到字符串  一些格式，生数据处理，   使用12345678* Python strip() 方法用于移除字符串头尾指定的字符（默认为空格或换行符）或字符序列。      **注意：**该方法只能删除开头或是结尾的字符，不能删除中间部分的字符* 使用正则删除多余字符    ```b = re.com">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/2249038142.github.io/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/06/26/python-爬虫练习/">
+
+
+
+
+
+  <title>python 爬虫练习 | Jason's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/2249038142.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jason's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Jason studying and sharing place</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/2249038142.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/2249038142.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/2249038142.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/2249038142.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2249038142.github.io/2019/06/26/python-爬虫练习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴佳宸">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/2249038142.github.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jason's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python 爬虫练习</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-26T11:05:43+08:00">
+                2019-06-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/2249038142.github.io/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="python-爬虫练习五个小练习"><a href="#python-爬虫练习五个小练习" class="headerlink" title="python 爬虫练习五个小练习"></a>python 爬虫练习五个小练习</h1><h3 id="值得注意的点"><a href="#值得注意的点" class="headerlink" title="值得注意的点"></a>值得注意的点</h3><ul>
+<li><p>使用xpath爬取的是一个list要取list[0]得到字符串</p>
+</li>
+<li><p>一些格式，生数据处理，</p>
+<p>  使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* Python strip() 方法用于移除字符串头尾指定的字符（默认为空格或换行符）或字符序列。  </span><br><span class="line"></span><br><span class="line">    **注意：**该方法只能删除开头或是结尾的字符，不能删除中间部分的字符</span><br><span class="line"></span><br><span class="line">* 使用正则删除多余字符</span><br><span class="line"></span><br><span class="line">    ```b = re.compile()``````b.findall()</span><br></pre></td></tr></table></figure></p>
+<pre><code>python暂时只会这个正则方法，reg匹配所有编程语言都是通用的</code></pre></li>
+<li><p>xpath(……/text())获取文本</p>
+</li>
+<li><p>有些地方爬取的内容为空，运行就会报错，用if 判断xpath内容是否为空，else写入空内容的通用值</p>
+</li>
+</ul>
+<h3 id="整体思路"><a href="#整体思路" class="headerlink" title="整体思路"></a>整体思路</h3><p>从控制台找到要爬取的信息，无非就是html内容，json内容，ajax请求内容,获取到节点，写入字典，导出json</p>
+<p>跟老师不同的是，删除了一些函数，写在一个里，因为python本身就是脚本编程语言，一行语句写一个函数无疑加大了代码阅读难度。就一点内容，没那么多类，函数可写。</p>
+<h3 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h3><h3 id="爬取内容"><a href="#爬取内容" class="headerlink" title="爬取内容"></a>爬取内容</h3><p><strong>1.豆瓣音乐top250</strong><br>url：<a href="https://music.douban.com/top250" target="_blank" rel="noopener">https://music.douban.com/top250</a><br>爬取歌名，作者，评分</p>
+<ul>
+<li>跟豆瓣电影类似</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests, json, xlwt, re, time</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> html</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TopMusicSpider</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.url_temp = <span class="string">" https://music.douban.com/top250?start=&#123;&#125;"</span></span><br><span class="line">        self.headers = &#123;<span class="string">"User-Agent"</span>: <span class="string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64)\</span></span><br><span class="line"><span class="string">         AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Safari/537.36"</span>&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 爬取数据返回json</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></span><br><span class="line">        etree = html.etree  <span class="comment"># 引入lxml</span></span><br><span class="line">        url_list = []</span><br><span class="line">        content_list = []</span><br><span class="line">        b = re.compile(<span class="string">'^(.*?)/'</span>)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">            url_list.append(self.url_temp.format(i*<span class="number">25</span>))</span><br><span class="line">            <span class="comment">#  lxml解析文章（http请求，把user-Agent浏览器代理写入http头,模拟用户操作防止被检测，</span></span><br><span class="line">            <span class="comment"># decode（）将内容解码)</span></span><br><span class="line">            response = etree.HTML(requests.get(url_list[i], headers=self.headers).content.decode())</span><br><span class="line">            div_list = response.xpath(<span class="string">'//div[@class="pl2"]'</span>)  <span class="comment"># 获取当前页节点列表</span></span><br><span class="line">            <span class="keyword">for</span> div <span class="keyword">in</span> div_list:  <span class="comment"># 循环节点，分别在每个节点里面取内容</span></span><br><span class="line">                item = dict()</span><br><span class="line">                item[<span class="string">'title'</span>] = div.xpath(<span class="string">'./a[1]/text()'</span>)[<span class="number">0</span>].strip() <span class="comment"># 提取题目</span></span><br><span class="line">                item[<span class="string">'author'</span>]= b.findall(div.xpath(<span class="string">'./p/text()'</span>)[<span class="number">0</span>])[<span class="number">0</span>]</span><br><span class="line">                item[<span class="string">'start'</span>] = div.xpath(<span class="string">'./div/span[@class="rating_nums"]/text()'</span>)[<span class="number">0</span>]</span><br><span class="line">                content_list.append(item)</span><br><span class="line">            print(<span class="string">"已爬取&#123;&#125;页"</span>.format(i+<span class="number">1</span>))</span><br><span class="line">            <span class="comment">#time.sleep(1)</span></span><br><span class="line">        print(content_list)</span><br><span class="line">        <span class="keyword">return</span> content_list</span><br><span class="line">    <span class="comment"># 写入文件夹，缩进2空格</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">jsonToTxt</span><span class="params">(self)</span>:</span></span><br><span class="line">        jsonmusic = self.run()</span><br><span class="line">        <span class="keyword">with</span> open(<span class="string">"topmusic.json"</span>, <span class="string">'a'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:  <span class="comment"># 也可以改成.txt文件</span></span><br><span class="line">            f.write(json.dumps(jsonmusic, ensure_ascii=<span class="literal">False</span>, indent=<span class="number">2</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">TopMusicSpider().jsonToTxt()</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.理论文选</strong><br>url：<a href="http://www.qstheory.cn/qszq/llwx/index.htm" target="_blank" rel="noopener">http://www.qstheory.cn/qszq/llwx/index.htm</a><br>爬取标题，作者，来源，日期</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests, json, xlwt, re, time</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> html</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">truethSpider</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.url = <span class="string">"http://www.qstheory.cn/qszq/llwx/index.htm"</span></span><br><span class="line">        self.headers = &#123;<span class="string">"User-Agent"</span>: <span class="string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64)\</span></span><br><span class="line"><span class="string">         AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Safari/537.36"</span>&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 爬取数据返回json</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></span><br><span class="line">        etree = html.etree  <span class="comment"># 引入lxml</span></span><br><span class="line">        content_list = []</span><br><span class="line">            <span class="comment">#  lxml解析文章（http请求，把user-Agent浏览器代理写入http头,模拟用户操作防止被检测，</span></span><br><span class="line">            <span class="comment"># decode（）将内容解码)</span></span><br><span class="line">        response = etree.HTML(requests.get(self.url, headers=self.headers).content.decode())</span><br><span class="line">        div_list = response.xpath(<span class="string">'//div[@class="list-style1 row"]/ul/li'</span>)  <span class="comment"># 获取当前页节点列表</span></span><br><span class="line">        <span class="keyword">for</span> div <span class="keyword">in</span> div_list:  <span class="comment"># 循环节点，分别在每个节点里面取内容</span></span><br><span class="line">            item = dict()</span><br><span class="line">            item[<span class="string">'title'</span>] = div.xpath(<span class="string">'./a/text()'</span>)[<span class="number">0</span>]  <span class="comment"># 提取题目</span></span><br><span class="line">            <span class="keyword">if</span> div.xpath(<span class="string">'./div/span[1]/text()'</span>) :</span><br><span class="line">                item[<span class="string">'author'</span>] = div.xpath(<span class="string">'./div/span[1]/text()'</span>)[<span class="number">0</span>]  <span class="comment"># 作者</span></span><br><span class="line">            <span class="keyword">else</span> :</span><br><span class="line">                item[<span class="string">'author'</span>]=<span class="string">'匿名'</span></span><br><span class="line">            item[<span class="string">'from'</span>] = div.xpath(<span class="string">'./div/span[2]/text()'</span>)[<span class="number">0</span>].lstrip(<span class="string">'来源-'</span>)  <span class="comment"># 来源</span></span><br><span class="line">            item[<span class="string">'date'</span>] = div.xpath(<span class="string">'./div/span[3]/text()'</span>)[<span class="number">0</span>]  <span class="comment"># 日期</span></span><br><span class="line">            content_list.append(item)</span><br><span class="line">        print(content_list)</span><br><span class="line">        <span class="keyword">return</span> content_list</span><br><span class="line">    <span class="comment"># 写入文件夹，缩进2空格</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">jsonToTxt</span><span class="params">(self)</span>:</span></span><br><span class="line">        jsonNet = self.run()</span><br><span class="line">        <span class="keyword">with</span> open(<span class="string">"truethNet.json"</span>, <span class="string">'a'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:  <span class="comment"># 也可以改成.txt文件</span></span><br><span class="line">            f.write(json.dumps(jsonNet, ensure_ascii=<span class="literal">False</span>, indent=<span class="number">2</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">truethSpider().jsonToTxt()</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.金程考研</strong><br>url：<a href="http://www.51dx.org/review/index.shtml" target="_blank" rel="noopener">http://www.51dx.org/review/index.shtml</a><br>爬取标题，文本</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests, json, xlwt, re, time</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> html</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">kaoyanSpider</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.url_temp = <span class="string">"http://www.51dx.org/review/index&#123;&#125;&#123;&#125;.shtml"</span></span><br><span class="line">        self.headers = &#123;<span class="string">"User-Agent"</span>: <span class="string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64)\</span></span><br><span class="line"><span class="string">         AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Safari/537.36"</span>&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 爬取数据返回json</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></span><br><span class="line">        etree = html.etree  <span class="comment"># 引入lxml</span></span><br><span class="line">        url_list = []</span><br><span class="line">        content_list = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">199</span>):</span><br><span class="line">            <span class="keyword">if</span> i &lt; <span class="number">1</span>:</span><br><span class="line">                url_list.append(self.url_temp.format(<span class="string">''</span>, <span class="string">''</span>))</span><br><span class="line">            <span class="keyword">else</span> :</span><br><span class="line">                url_list.append(self.url_temp.format(<span class="string">'_'</span>, i+<span class="number">1</span>))</span><br><span class="line">             <span class="comment">#  lxml解析文章（http请求，把user-Agent浏览器代理写入http头,模拟用户操作防止被检测，</span></span><br><span class="line">            <span class="comment"># decode（）将内容解码)</span></span><br><span class="line">            response = etree.HTML(requests.get(url_list[i], headers=self.headers).content.decode())</span><br><span class="line">            div_list = response.xpath(<span class="string">'//div[@class="listSingle"]/div[@class="text"]'</span>)  <span class="comment"># 获取当前页节点列表</span></span><br><span class="line">            <span class="keyword">for</span> div <span class="keyword">in</span> div_list:  <span class="comment"># 循环节点，分别在每个节点里面取内容</span></span><br><span class="line">                item = dict()</span><br><span class="line">                item[<span class="string">'title'</span>] = div.xpath(<span class="string">'./div/a/@title'</span>)[<span class="number">0</span>] <span class="comment"># 提取题目</span></span><br><span class="line">                <span class="keyword">if</span> div.xpath(<span class="string">'./h3/text()'</span>):</span><br><span class="line">                    item[<span class="string">'intro'</span>] = div.xpath(<span class="string">'./h3/text()'</span>)[<span class="number">0</span>]</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    item[<span class="string">'intro'</span>] = <span class="string">' '</span></span><br><span class="line">                content_list.append(item)</span><br><span class="line">            print(<span class="string">"已爬取&#123;&#125;页"</span>.format(i+<span class="number">1</span>))</span><br><span class="line">            <span class="comment">#time.sleep(1)</span></span><br><span class="line">        <span class="comment">#print(content_list)</span></span><br><span class="line">        <span class="keyword">return</span> content_list</span><br><span class="line">    <span class="comment"># 写入文件夹，缩进2空格</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">jsonToTxt</span><span class="params">(self)</span>:</span></span><br><span class="line">        jsonNet = self.run()</span><br><span class="line">        <span class="keyword">with</span> open(<span class="string">"kaoyan.json"</span>, <span class="string">'a'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:  <span class="comment"># 也可以改成.txt文件</span></span><br><span class="line">            f.write(json.dumps(jsonNet, ensure_ascii=<span class="literal">False</span>, indent=<span class="number">2</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">kaoyanSpider().jsonToTxt()</span><br><span class="line"><span class="comment">#kaoyanSpider().run()</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>4.携程酒店</strong><br>url：<a href="https://hotels.ctrip.com/hotel/changde201#ctm_ref=hod_hp_sb_lst" target="_blank" rel="noopener">https://hotels.ctrip.com/hotel/changde201#ctm_ref=hod_hp_sb_lst</a><br>爬取常德酒店名，地址，评分</p>
+<ul>
+<li>携程最开始用<strong>Selenium</strong>库但是爬到第二页，内容获取报错，很奇怪。有时候下一页按钮也获取不到，这个库没学什么，试了多次所以放弃了，用回了requests</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> html</span><br><span class="line"><span class="keyword">import</span> time, re,requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">temp_url=(<span class="string">'https://hotels.ctrip.com/hotel/changde201/p&#123;&#125;'</span>)</span><br><span class="line">headers = &#123;<span class="string">"User-Agent"</span>: <span class="string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64)\</span></span><br><span class="line"><span class="string">         AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Safari/537.36"</span>&#125;</span><br><span class="line">stripD = re.compile(<span class="string">'[^\d*]'</span>)</span><br><span class="line">etree = html.etree  <span class="comment"># 引入lxml</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">15</span>):</span><br><span class="line">        response = etree.HTML(requests.get(temp_url.format(i+<span class="number">1</span>), headers=headers).content.decode())</span><br><span class="line">        li_list = response.xpath(<span class="string">'//ul[@class="hotel_item"]'</span>)</span><br><span class="line">        content_list = []</span><br><span class="line">        <span class="keyword">for</span> li <span class="keyword">in</span> li_list:</span><br><span class="line">            item = dict()</span><br><span class="line">            <span class="comment"># 使用正则把左边数字去掉，然后join合并成string</span></span><br><span class="line">            item[<span class="string">'hotel_name'</span>] = <span class="string">""</span>.join(stripD.findall(li.xpath(<span class="string">'./li/h2/a/text()'</span>)[<span class="number">0</span>]))</span><br><span class="line">            <span class="comment"># 把左右的垃圾信息去掉</span></span><br><span class="line">            item[<span class="string">'hotel_address'</span>] = <span class="string">""</span>.join(li.xpath(<span class="string">'./li/p[@class="hotel_item_htladdress"]/text()'</span>)).lstrip(<span class="string">"【 】"</span>).rstrip(<span class="string">"。 "</span>)</span><br><span class="line">            <span class="comment"># 判断有无评分</span></span><br><span class="line">            <span class="keyword">if</span> li.xpath(<span class="string">'./li/div[@class="hotelitem_judge_box"]/a/span[@class="hotel_value"]/text()'</span>):</span><br><span class="line">                item[<span class="string">'start'</span>] = li.xpath(<span class="string">'./li/div[@class="hotelitem_judge_box"]/a/span[@class="hotel_value"]/text()'</span>)[<span class="number">0</span>]</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                item[<span class="string">'start'</span>]=<span class="string">"暂无评分"</span></span><br><span class="line">            print(item)</span><br><span class="line">            content_list.append(item)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">with</span> open(<span class="string">'cstrip.txt'</span>, <span class="string">'a'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">            f.write(json.dumps(content_list, ensure_ascii=<span class="literal">False</span>, indent=<span class="number">2</span>))</span><br><span class="line">        print(<span class="string">"爬了&#123;&#125;页"</span>.format(i+<span class="number">1</span>))</span><br><span class="line">run()</span><br></pre></td></tr></table></figure>
+
+<p><strong>5.斗鱼直播</strong><br>爬取房间信息</p>
+<ul>
+<li>直接找到开发者工具Network里的json文件</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="comment"># 请求json数据的url</span></span><br><span class="line">url_temp = <span class="string">"https://www.douyu.com/gapi/rkc/directory/0_0/&#123;&#125;"</span></span><br><span class="line">header = &#123;</span><br><span class="line">     <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36'</span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">#发送请求获取响应</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">        url=url_temp.format(i)</span><br><span class="line">    <span class="comment">#2.遍历，发送请求获取响应</span></span><br><span class="line">        response = requests.get(url, headers=header).content.decode()</span><br><span class="line">        <span class="comment">#3.提取数据</span></span><br><span class="line">        dict = json.loads(response)</span><br><span class="line">        <span class="comment"># 取到data的值</span></span><br><span class="line">        data = dict[<span class="string">'data'</span>]</span><br><span class="line">        <span class="comment"># 取到rl的值(注意，rl的值是一个列表，里面有120个字典元素，每个字典表示一个房间信息)</span></span><br><span class="line">        rl = data[<span class="string">'rl'</span>]</span><br><span class="line">        content_list = []</span><br><span class="line">        <span class="keyword">for</span> li <span class="keyword">in</span> rl:</span><br><span class="line">            item = &#123;&#125;</span><br><span class="line">            <span class="comment"># 房间</span></span><br><span class="line">            item[<span class="string">'room_name'</span>] = li[<span class="string">'rn'</span>]</span><br><span class="line">            item[<span class="string">'author_name'</span>] = li[<span class="string">'nn'</span>]</span><br><span class="line">            item[<span class="string">'room_cate'</span>] = li[<span class="string">'c2name'</span>]</span><br><span class="line">            print(item)</span><br><span class="line">            content_list.append(item)</span><br><span class="line">        <span class="comment">#4.保存</span></span><br><span class="line">        <span class="keyword">with</span> open(<span class="string">'douyu.txt'</span>, <span class="string">'a'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">            <span class="keyword">for</span> content <span class="keyword">in</span> content_list:</span><br><span class="line">                f.write(json.dumps(content, ensure_ascii=<span class="literal">False</span>, indent=<span class="number">2</span>))</span><br><span class="line">run()</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/2249038142.github.io/tags/爬虫/" rel="tag"># 爬虫</a>
+          
+            <a href="/2249038142.github.io/tags/练习/" rel="tag"># 练习</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2249038142.github.io/2019/06/18/写给学弟学妹的学习小程序经验总结/" rel="next" title="写给学弟学妹的学习小程序经验总结">
+                <i class="fa fa-chevron-left"></i> 写给学弟学妹的学习小程序经验总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2249038142.github.io/2019/06/26/python-爬取豆瓣Top250/" rel="prev" title="爬取豆瓣Top250">
+                爬取豆瓣Top250 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">吴佳宸</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/2249038142.github.io/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/2249038142.github.io/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/2249038142.github.io/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/2249038142" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:jiachenwu@foxmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python-爬虫练习五个小练习"><span class="nav-number">1.</span> <span class="nav-text">python 爬虫练习五个小练习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#值得注意的点"><span class="nav-number">1.0.1.</span> <span class="nav-text">值得注意的点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#整体思路"><span class="nav-number">1.0.2.</span> <span class="nav-text">整体思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内容"><span class="nav-number">1.0.3.</span> <span class="nav-text">内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#爬取内容"><span class="nav-number">1.0.4.</span> <span class="nav-text">爬取内容</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴佳宸</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/2249038142.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/2249038142.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/2249038142.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/2249038142.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/2249038142.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/2249038142.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/2249038142.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/2249038142.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/2249038142.github.io/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/2249038142.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/2249038142.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/2249038142.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/2249038142.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
