@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/2249038142.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/2249038142.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/2249038142.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/2249038142.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/2249038142.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/2249038142.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/2249038142.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="MongoDB 一个数据库对应多个集合  一个集合对应多个文档对象 在mongo中不论是db还是集合，你都无需去创建他 直接就当他已经存在，直接Use来使用 把文档比喻成数据库的一行，一个集合相当于一张表 use db名称; 接着会被切换到该db中   db.要创建的集合名称.save({});这样集合就被创建了     解决32位异常mongod –dbpath=”路径” –journal –s">
+<meta name="keywords" content="前端 博客 学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初识MongoDB">
+<meta property="og:url" content="http://yoursite.com/2019/08/06/MongoDB/index.html">
+<meta property="og:site_name" content="Jason&#39;s Blog">
+<meta property="og:description" content="MongoDB 一个数据库对应多个集合  一个集合对应多个文档对象 在mongo中不论是db还是集合，你都无需去创建他 直接就当他已经存在，直接Use来使用 把文档比喻成数据库的一行，一个集合相当于一张表 use db名称; 接着会被切换到该db中   db.要创建的集合名称.save({});这样集合就被创建了     解决32位异常mongod –dbpath=”路径” –journal –s">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-08-06T01:46:08.525Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="初识MongoDB">
+<meta name="twitter:description" content="MongoDB 一个数据库对应多个集合  一个集合对应多个文档对象 在mongo中不论是db还是集合，你都无需去创建他 直接就当他已经存在，直接Use来使用 把文档比喻成数据库的一行，一个集合相当于一张表 use db名称; 接着会被切换到该db中   db.要创建的集合名称.save({});这样集合就被创建了     解决32位异常mongod –dbpath=”路径” –journal –s">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/2249038142.github.io/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/08/06/MongoDB/">
+
+
+
+
+
+  <title>初识MongoDB | Jason's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/2249038142.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jason's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">佳宸学习和分享笔记的地方</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/2249038142.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/2249038142.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/2249038142.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/2249038142.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2249038142.github.io/2019/08/06/MongoDB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴佳宸">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/2249038142.github.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jason's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">初识MongoDB</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-06T09:46:04+08:00">
+                2019-08-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h1><ul>
+<li><p>一个数据库对应多个集合</p>
+<ul>
+<li>一个集合对应多个文档对象</li>
+<li>在mongo中不论是db还是集合，你都无需去创建他</li>
+<li>直接就当他已经存在，直接Use来使用</li>
+<li><strong>把文档比喻成数据库的一行，一个集合相当于一张表</strong><ul>
+<li>use db名称;<ul>
+<li>接着会被切换到该db中</li>
+</ul>
+</li>
+<li><code>db.要创建的集合名称.save({})</code>;这样集合就被创建了</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>解决32位异常</strong><br>mongod –dbpath=”路径” –journal –storageEngine=mmapv1</p>
+</li>
+</ul>
+<ul>
+<li><p>1:启动服务器</p>
+<ul>
+<li><code>mongod --dbpath &quot;D:/mongodb/db&quot;</code> // 目录一定要存在自己创建随便名称‘<ul>
+<li>尽量设置在非系统盘 <code>C盘生成目录是需要权限的</code></li>
+</ul>
+</li>
+<li>如果看到<code>waiting for connections on port 27017</code>说明服务已经启动</li>
+</ul>
+</li>
+<li><p>客户端连接服务器<strong>另开一个命令行</strong></p>
+<ul>
+<li><code>mongo</code> 默认连接的是test数据库</li>
+</ul>
+</li>
+<li><p>查询有哪些数据库  </p>
+<ul>
+<li>查询数据库：<code>show dbs;</code></li>
+<li>切换数据库: <code>use 数据库名;</code></li>
+</ul>
+</li>
+<li><p>查询当前db下有哪些集合</p>
+<ul>
+<li><code>show collections;</code></li>
+</ul>
+</li>
+<li><p>查询数据：</p>
+<ul>
+<li><code>db.集合名.find();</code>  //查询出来的是文档对象 document<ul>
+<li><code>db.users.find();</code>    </li>
+<li>查询名字为sun的，<code>db.users.find({name:&quot;sun&quot;});</code>    </li>
+<li>查询集合中文档数量<code>db.users.find().count()</code>    </li>
+<li><code>db.users.find({num:{$lte:10}}.skip(10).limit(10))</code>小于等于10,跳过十条，查10条</li>
+<li>lt=less than,    ​gt=great than</li>
+<li>查询小于1000 或大于2000的员工，db.empty.find({$or:[sal:{$lt:1000},{sal:{$gt:gt:2000}}]})</li>
+<li><code>db.users.find().sort({id:1，name:1})</code>1表示升序-1表示降序，先比ID，如果一样比名字</li>
+<li><code>db.users.find({},{name:1})</code>只显示名字，可以列出想想显示字段</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>插入数据：    <code>db.collection.insert({contry:&#39;中国&#39;,name:&#39;小明&#39;,score:77})</code></p>
+<ul>
+<li>插入多条用数组<code>db.student.insert([
+{name:&quot;bajie&quot;,age:23},
+{name:&quot;shaheshang&quot;,age:66},
+])</code></li>
+</ul>
+</li>
+<li><p>添加数据:</p>
+<ul>
+<li><p><code>db.集合名.save(对象)</code> //mongo默认会给我们加入_id作为该文档对象的唯一标识</p>
+</li>
+<li><p><code>db.users.save({contry:&#39;中国&#39;,name:&#39;小明&#39;,score:77});</code></p>
+</li>
+<li><p><code>db.users.update({name:&#39;小明&#39;},{$push:{contry:&#39;印度&#39;})</code></p>
+</li>
+<li><p><code>db.users.update({name:&#39;小明&#39;},{$addToSet:{contry:&#39;印度&#39;})</code>如果重复不会添加</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>删除数据:</p>
+<ul>
+<li><code>db.集合名.remove(条件对象);</code>//条件匹配就会被全部删除</li>
+<li><code>db.users.remove({name:&#39;小明&#39;}，true);</code>只会删除第一个匹配</li>
+<li>如果给定一个空对像，会匹配全部<code>db.集合名.remove({})</code>=这个性能更好<code>db.collection.drop()</code></li>
+<li><code>db.dropDatabase</code>删库</li>
+</ul>
+</li>
+<li><p>更新数据:<strong>默认情况下只修改一个</strong></p>
+<ul>
+<li><p><code>db.集合名.update({匹配条件对象},{$set:{修改后的对象}})</code></p>
+</li>
+<li><p><code>db.users.update({name:&#39;小明&#39;},{$set:{contry:&#39;印度&#39;}})</code></p>
+</li>
+<li><p>修改多个</p>
+<p>  <code>db.users.updateMany</code></p>
+<p>  <code>db.users.update({name:&#39;小明&#39;},{$set:{contry:&#39;印度&#39;}}，{multi:true})</code>设置属性</p>
+<p>  ​                                                                     $inc​增加</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">	练习：</span><br><span class="line"> 查询姓名为小明的学生</span><br><span class="line">       db.users.find(&#123;name:&apos;小明&apos;&#125;);;   查询英语成绩大于90分的同学</span><br><span class="line">       db.users.find(&#123;score:&#123;$gt:90&#125;&#125;); //查找成绩大于90分$gt</span><br><span class="line">       //$lt小于</span><br><span class="line">查询数学成绩不等于88的同学</span><br><span class="line">       db.users.find(&#123;score:&#123;$ne:88&#125;&#125;);   查询总分大于200分的所有同学</span><br><span class="line">       db.users.find(&#123;score:&#123;$gt:200&#125;&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h4><ul>
+<li><code>db.users.find().skip(3).limit(3);</code></li>
+<li>db.集合名称.find().跳到3.显示3条<pre><code>+ limit 0,3</code></pre></li>
+</ul>
+<h4 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h4><ul>
+<li><code>db.users.find().sort({key:排序方式});</code></li>
+<li><code>db.users.find().sort({&#39;score&#39;:1});</code> //正数代表升序，负数代表降序</li>
+</ul>
+<h4 id="模糊匹配"><a href="#模糊匹配" class="headerlink" title="模糊匹配"></a>模糊匹配</h4><ul>
+<li><code>db.users.find({name:{$regex:&#39;小&#39;}});</code></li>
+<li><code>db.users.find({name:{$regex:&#39;明&#39;}});</code></li>
+</ul>
+<h4 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h4><ul>
+<li>需要求当前集合的记录数：</li>
+<li><code>db.users.find().count();</code></li>
+<li>求最大值<br>-求整个集合的总成绩<pre><code>+ db.集合名.聚合({ 组的划分规则{_id:&apos;1&apos;,显示内容:{$sum:&apos;$score&apos;}} })</code></pre><ul>
+<li>求所有人的平均分<ul>
+<li><code>db.users.aggregate({$group:{_id:&#39;1&#39;,sumscore:{$avg:&#39;$score&#39; } }});</code></li>
+</ul>
+</li>
+<li>求按国家分组，求所有国家的总分<ul>
+<li><code>db.users.aggregate({$group:{_id:&#39;$contry&#39;,sumScore:{$sum:&#39;$score&#39;}}});</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>添加基础数据:<br>db.users.save({contry:’中国’,name:’小明’,score:77});<br>db.users.save({contry:’中国’,name:’小红’,score:88});<br>db.users.save({contry:’中国’,name:’小张’,score:99});<br>db.users.save({contry:’美国’,name:’jack’,score:45});<br>db.users.save({contry:’美国’,name:’rose’,score:67});<br>db.users.save({contry:’美国’,name:’mick’,score:89});</li>
+</ul>
+<h4 id="联合查询"><a href="#联合查询" class="headerlink" title="联合查询"></a>联合查询</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">db.orders.insert([</span><br><span class="line">   &#123; <span class="string">"_id"</span> : <span class="number">1</span>, <span class="string">"item"</span> : <span class="string">"almonds"</span>, <span class="string">"price"</span> : <span class="number">12</span>, <span class="string">"quantity"</span> : <span class="number">2</span> &#125;,</span><br><span class="line">   &#123; <span class="string">"_id"</span> : <span class="number">2</span>, <span class="string">"item"</span> : <span class="string">"pecans"</span>, <span class="string">"price"</span> : <span class="number">20</span>, <span class="string">"quantity"</span> : <span class="number">1</span> &#125;,</span><br><span class="line">   &#123; <span class="string">"_id"</span> : <span class="number">3</span>  &#125;</span><br><span class="line">]);</span><br><span class="line">db.inventory.insert([</span><br><span class="line">   &#123; <span class="string">"_id"</span> : <span class="number">1</span>, <span class="string">"sku"</span> : <span class="string">"almonds"</span>, <span class="attr">description</span>: <span class="string">"product 1"</span>, <span class="string">"instock"</span> : <span class="number">120</span> &#125;,</span><br><span class="line">   &#123; <span class="string">"_id"</span> : <span class="number">2</span>, <span class="string">"sku"</span> : <span class="string">"bread"</span>, <span class="attr">description</span>: <span class="string">"product 2"</span>, <span class="string">"instock"</span> : <span class="number">80</span> &#125;,</span><br><span class="line">   &#123; <span class="string">"_id"</span> : <span class="number">3</span>, <span class="string">"sku"</span> : <span class="string">"cashews"</span>, <span class="attr">description</span>: <span class="string">"product 3"</span>, <span class="string">"instock"</span> : <span class="number">60</span> &#125;,</span><br><span class="line">   &#123; <span class="string">"_id"</span> : <span class="number">4</span>, <span class="string">"sku"</span> : <span class="string">"pecans"</span>, <span class="attr">description</span>: <span class="string">"product 4"</span>, <span class="string">"instock"</span> : <span class="number">70</span> &#125;,</span><br><span class="line">   &#123; <span class="string">"_id"</span> : <span class="number">5</span>, <span class="string">"sku"</span>: <span class="literal">null</span>, <span class="attr">description</span>: <span class="string">"Incomplete"</span> &#125;,</span><br><span class="line">   &#123; <span class="string">"_id"</span> : <span class="number">6</span> &#125;</span><br><span class="line">]);</span><br><span class="line">db.orders.aggregate([</span><br><span class="line">   &#123;</span><br><span class="line">     $lookup:</span><br><span class="line">       &#123;</span><br><span class="line">         <span class="keyword">from</span>: <span class="string">"inventory"</span>,</span><br><span class="line">         localField: <span class="string">"item"</span>,</span><br><span class="line">         foreignField: <span class="string">"sku"</span>,</span><br><span class="line">         <span class="keyword">as</span>: <span class="string">"inventory_docs"</span></span><br><span class="line">       &#125;</span><br><span class="line">  &#125;</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+
+<h4 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h4><ul>
+<li><a href="https://docs.mongodb.com/manual/reference/operator/" target="_blank" rel="noopener">https://docs.mongodb.com/manual/reference/operator/</a></li>
+</ul>
+<h4 id="配置https"><a href="#配置https" class="headerlink" title="配置https"></a>配置https</h4><ul>
+<li>公钥  公开的加密方式</li>
+<li>私钥  存在服务器的唯一解公钥加密的方式</li>
+<li>签名  确保数据的一致性</li>
+<li>证书  确保当前发送数据单位可信</li>
+</ul>
+<h3 id="使用mongoose"><a href="#使用mongoose" class="headerlink" title="使用mongoose"></a>使用mongoose</h3><p><code>npm i mongoose --save</code></p>
+<p><code>stuModel.find({},{name:1,_id:0},{skip:3,limit:1},(err,docs)=&gt;{
+    if(!err){console.log(docs)}
+})</code>只查询name,跳过三个只显示1<br><code>stuModel.find({},&quot;name -_id&quot;,(err,docs)=&gt;{
+    if(!err){console.log(docs)}
+})</code>跟上一样</p>
+<p><strong>连接mongo,进行简单操作</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>)</span><br><span class="line">mongoose.connect(<span class="string">"mongodb://127.0.0.1/test"</span>)</span><br><span class="line">mongoose.connection.once(<span class="string">"open"</span>, () =&gt; <span class="built_in">console</span>.log(<span class="string">"连接成功"</span>))</span><br><span class="line">mongoose.connection.once(<span class="string">"close"</span>, () =&gt; <span class="built_in">console</span>.log(<span class="string">"连接断开"</span>))</span><br><span class="line">    <span class="comment">//mongoose.disconnect()</span></span><br><span class="line"><span class="keyword">const</span> Schema = mongoose.Schema</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> stuSchema = <span class="keyword">new</span> Schema(&#123;</span><br><span class="line">    name: <span class="built_in">String</span>,</span><br><span class="line">    age: <span class="built_in">Number</span>,</span><br><span class="line">    gender: &#123;</span><br><span class="line">        type: <span class="built_in">String</span>,</span><br><span class="line">        <span class="keyword">default</span>: <span class="string">'female'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    address: <span class="built_in">String</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> stuModel = mongoose.model(<span class="string">"student"</span>, stuSchema)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*stuModel.create(&#123;</span></span><br><span class="line"><span class="comment">    name: 'jiachen',</span></span><br><span class="line"><span class="comment">    age: 20,</span></span><br><span class="line"><span class="comment">    gender: 'man',</span></span><br><span class="line"><span class="comment">    address: 'yiyang'</span></span><br><span class="line"><span class="comment">&#125;, (err) =&gt; &#123;</span></span><br><span class="line"><span class="comment">    if (!err) &#123;</span></span><br><span class="line"><span class="comment">        console.log('插入成功')</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">&#125;)*/</span></span><br><span class="line">stuModel.findOne(&#123;&#125;,(err,doc)=&gt;&#123;</span><br><span class="line">    <span class="keyword">if</span>(!err)&#123;</span><br><span class="line">        doc.update(&#123;<span class="attr">$set</span>:&#123;<span class="attr">age</span>:<span class="number">28</span>&#125;&#125;,err=&gt;&#123;</span><br><span class="line">            <span class="keyword">if</span>(!err)&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'modify success'</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2249038142.github.io/2019/07/26/初识断点调试/" rel="next" title="初识断点调试">
+                <i class="fa fa-chevron-left"></i> 初识断点调试
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2249038142.github.io/2019/08/07/2019-8-6 初识KOA/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">吴佳宸</p>
+              <p class="site-description motion-element" itemprop="description">前端博客</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/2249038142.github.io/archives/">
+              
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/2249038142.github.io/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/2249038142.github.io/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/2249038142" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:jiachenwu@foxmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MongoDB"><span class="nav-number">1.</span> <span class="nav-text">MongoDB</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#条件查询"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">条件查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分页"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">分页</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#排序"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模糊匹配"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">模糊匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#聚合函数"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">聚合函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#联合查询"><span class="nav-number">1.0.0.6.</span> <span class="nav-text">联合查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#操作符"><span class="nav-number">1.0.0.7.</span> <span class="nav-text">操作符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置https"><span class="nav-number">1.0.0.8.</span> <span class="nav-text">配置https</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用mongoose"><span class="nav-number">1.0.1.</span> <span class="nav-text">使用mongoose</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴佳宸</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/2249038142.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/2249038142.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/2249038142.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/2249038142.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/2249038142.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/2249038142.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/2249038142.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/2249038142.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/2249038142.github.io/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/2249038142.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/2249038142.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/2249038142.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/2249038142.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
