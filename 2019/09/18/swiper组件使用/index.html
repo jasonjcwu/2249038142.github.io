@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/2249038142.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/2249038142.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/2249038142.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/2249038142.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/2249038142.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/2249038142.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/2249038142.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="swiper组件使用 引入 vue-awesome-swiper 的两种方式 全局引入  可以直接使用全局引入，引入代码如下： 1234567import Vue from &apos;vue&apos;import VueAwesomeSwiper from &apos;vue-awesome-swiper&apos;// require stylesimport &apos;swiper/dist/css/swiper.css&apos;Vue.use">
+<meta name="keywords" content="前端 博客 学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jason&#39;s Blog">
+<meta property="og:url" content="http://yoursite.com/2019/09/18/swiper组件使用/index.html">
+<meta property="og:site_name" content="Jason&#39;s Blog">
+<meta property="og:description" content="swiper组件使用 引入 vue-awesome-swiper 的两种方式 全局引入  可以直接使用全局引入，引入代码如下： 1234567import Vue from &apos;vue&apos;import VueAwesomeSwiper from &apos;vue-awesome-swiper&apos;// require stylesimport &apos;swiper/dist/css/swiper.css&apos;Vue.use">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="e:%5CBlog%5Cpicture%5C1568809332660.png">
+<meta property="og:updated_time" content="2019-09-18T12:59:58.851Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Jason&#39;s Blog">
+<meta name="twitter:description" content="swiper组件使用 引入 vue-awesome-swiper 的两种方式 全局引入  可以直接使用全局引入，引入代码如下： 1234567import Vue from &apos;vue&apos;import VueAwesomeSwiper from &apos;vue-awesome-swiper&apos;// require stylesimport &apos;swiper/dist/css/swiper.css&apos;Vue.use">
+<meta name="twitter:image" content="e:%5CBlog%5Cpicture%5C1568809332660.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/2249038142.github.io/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/09/18/swiper组件使用/">
+
+
+
+
+
+  <title> | Jason's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/2249038142.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jason's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">佳宸学习和分享笔记的地方</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/2249038142.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/2249038142.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/2249038142.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/2249038142.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2249038142.github.io/2019/09/18/swiper组件使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴佳宸">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/2249038142.github.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jason's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-18T20:59:58+08:00">
+                2019-09-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="swiper组件使用"><a href="#swiper组件使用" class="headerlink" title="swiper组件使用"></a>swiper组件使用</h1><hr>
+<h3 id="引入-vue-awesome-swiper-的两种方式"><a href="#引入-vue-awesome-swiper-的两种方式" class="headerlink" title="引入 vue-awesome-swiper 的两种方式"></a>引入 vue-awesome-swiper 的两种方式</h3><ul>
+<li>全局引入</li>
+</ul>
+<p>可以直接使用全局引入，引入代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> VueAwesomeSwiper <span class="keyword">from</span> <span class="string">'vue-awesome-swiper'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// require styles</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'swiper/dist/css/swiper.css'</span></span><br><span class="line"></span><br><span class="line">Vue.use(VueAwesomeSwiper, <span class="comment">/* &#123; default global options &#125; */</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>以组件形式引入</li>
+</ul>
+<p>这种方式是在需要的页面以<code>component</code> 的形式引入，好处就是依赖性不强。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'swiper/dist/css/swiper.css'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; swiper, swiperSlide &#125; <span class="keyword">from</span> <span class="string">'vue-awesome-swiper'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  components: &#123;</span><br><span class="line">    swiper,</span><br><span class="line">    swiperSlide</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="一个简单的轮播图"><a href="#一个简单的轮播图" class="headerlink" title="一个简单的轮播图"></a>一个简单的轮播图</h3><p>新建一个<code>swiperDefault.vue</code>文件。写入如下代码:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;swiper :options=<span class="string">"swiperOption"</span>&gt;</span><br><span class="line">      &lt;swiper-slide <span class="class"><span class="keyword">class</span></span>=<span class="string">"swiper-slide"</span> v-<span class="keyword">for</span>=<span class="string">"(item, index) in slide"</span> :key=<span class="string">"index"</span>&gt;</span><br><span class="line">          Slide &#123;&#123;item&#125;&#125;</span><br><span class="line">      &lt;<span class="regexp">/swiper-slide&gt;</span></span><br><span class="line"><span class="regexp">      &lt;div class="swiper-pagination" slot="pagination"&gt;&lt;/</span>div&gt;</span><br><span class="line">    &lt;<span class="regexp">/swiper&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>div&gt;</span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">import "vue-awesome-swiper/</span>node_modules/swiper/dist/css/swiper.css<span class="string">"</span></span><br><span class="line"><span class="string">import &#123; swiper, swiperSlide &#125; from "</span>vue-awesome-swiper<span class="string">";</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">export default &#123;</span></span><br><span class="line"><span class="string">  data() &#123;</span></span><br><span class="line"><span class="string">    return &#123;</span></span><br><span class="line"><span class="string">      slide: [1, 2, 3, 4, 5, 6],</span></span><br><span class="line"><span class="string">      swiperOption:&#123;</span></span><br><span class="line"><span class="string">        swiperOption:&#123;</span></span><br><span class="line"><span class="string">        // 滑动最后页进入第一页</span></span><br><span class="line"><span class="string">        loop:true,</span></span><br><span class="line"><span class="string">          pagination:&#123;</span></span><br><span class="line"><span class="string">              el:'.swiper-pagination',</span></span><br><span class="line"><span class="string">              // 可以点击</span></span><br><span class="line"><span class="string">              clickable:true</span></span><br><span class="line"><span class="string">          &#125;</span></span><br><span class="line"><span class="string">      &#125;</span></span><br><span class="line"><span class="string">      &#125;</span></span><br><span class="line"><span class="string">    &#125;;</span></span><br><span class="line"><span class="string">  &#125;,</span></span><br><span class="line"><span class="string">  components: &#123; swiper, swiperSlide &#125;</span></span><br><span class="line"><span class="string">&#125;;</span></span><br><span class="line"><span class="string">&lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;style scoped&gt;</span></span><br><span class="line"><span class="string">.swiper-slide &#123;</span></span><br><span class="line"><span class="string">  height: 4rem;</span></span><br><span class="line"><span class="string">  text-align: center;</span></span><br><span class="line"><span class="string">  padding-top: 3rem;</span></span><br><span class="line"><span class="string">  border-bottom: 1px solid #ccc;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">&lt;/style&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>代码写好后，在<code>.vue</code>文件里进行引入使用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> swiperDefault <span class="keyword">from</span> <span class="string">'../swiper/swiperDefault'</span></span><br></pre></td></tr></table></figure>
+
+<p>然后注册组件,其实上节课的代码也是可以封装成一个component的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">components:&#123;swiper,swiperSlide,swiperDefault&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>注册好后，直接在<code>template</code>里使用就可以了.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;swiperDefault&gt;&lt;/swiperDefault&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="E:%5CBlog%5Cpicture%5C1568809332660.png" alt="1568809332660"></p>
+<h4 id="竖屏切换效果"><a href="#竖屏切换效果" class="headerlink" title="竖屏切换效果"></a>竖屏切换效果</h4><p>在配置项里直接配置<code>direction</code>就可以了，配置竖屏代码如下。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">swiperOption:&#123;</span><br><span class="line">    direction:<span class="string">'vertical'</span>,</span><br></pre></td></tr></table></figure>
+
+<h3 id="区域滚动效果"><a href="#区域滚动效果" class="headerlink" title="区域滚动效果"></a>区域滚动效果</h3><p>加入上划下拉的组件，在一定区域内局部可以滚动，如文章，或者广告</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;swiper <span class="class"><span class="keyword">class</span></span>=<span class="string">"swiper"</span> :options=<span class="string">"swiperOption"</span>&gt;</span><br><span class="line">            &lt;swiper-slide <span class="class"><span class="keyword">class</span></span>=<span class="string">"text"</span>&gt;</span><br><span class="line">                &lt;div&gt;大段文章...&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">            &lt;/</span>swiper-slide&gt;</span><br><span class="line">        &lt;<span class="regexp">/swiper&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>div&gt;</span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">import "vue-awesome-swiper/</span>node_modules/swiper/dist/css/swiper.css<span class="string">"</span></span><br><span class="line"><span class="string">import &#123; swiper, swiperSlide &#125; from "</span>vue-awesome-swiper<span class="string">";</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">export default &#123;</span></span><br><span class="line"><span class="string">  data() &#123;</span></span><br><span class="line"><span class="string">    return &#123;</span></span><br><span class="line"><span class="string">      swiperOption:&#123;</span></span><br><span class="line"><span class="string">            // 竖屏滚动</span></span><br><span class="line"><span class="string">            direction:'vertical',</span></span><br><span class="line"><span class="string">            // 一屏之内swiperslide数量</span></span><br><span class="line"><span class="string">            slidesPerView: 'auto',</span></span><br><span class="line"><span class="string">            // 滑动不自动贴合</span></span><br><span class="line"><span class="string">            freeMode: true,</span></span><br><span class="line"><span class="string">            // 鼠标滚轮控制</span></span><br><span class="line"><span class="string">            mousewheel:true</span></span><br><span class="line"><span class="string">      &#125;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">  &#125;,</span></span><br><span class="line"><span class="string">  components: &#123; swiper, swiperSlide &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">&lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;style scoped&gt;</span></span><br><span class="line"><span class="string">.swiper&#123;</span></span><br><span class="line"><span class="string">    height: 300px;</span></span><br><span class="line"><span class="string">    overflow: hidden;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">.text&#123;</span></span><br><span class="line"><span class="string">    font-size:18px;</span></span><br><span class="line"><span class="string">    text-align: left;</span></span><br><span class="line"><span class="string">    padding: 30px;</span></span><br><span class="line"><span class="string">    height: auto;</span></span><br><span class="line"><span class="string">    box-sizing: border-box;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">&lt;/style&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>更多效果请访问swiper 官方API，手写原生js轮播图请看我的淘宝静态首页项目</strong></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2249038142.github.io/2019/09/15/vue.js商城项目（前期准备）/" rel="next" title="vue.js商城项目（前期准备）">
+                <i class="fa fa-chevron-left"></i> vue.js商城项目（前期准备）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">吴佳宸</p>
+              <p class="site-description motion-element" itemprop="description">前端博客</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/2249038142.github.io/archives/">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/2249038142.github.io/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/2249038142.github.io/tags/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/2249038142" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:jiachenwu@foxmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#swiper组件使用"><span class="nav-number">1.</span> <span class="nav-text">swiper组件使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引入-vue-awesome-swiper-的两种方式"><span class="nav-number">1.0.1.</span> <span class="nav-text">引入 vue-awesome-swiper 的两种方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一个简单的轮播图"><span class="nav-number">1.0.2.</span> <span class="nav-text">一个简单的轮播图</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#竖屏切换效果"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">竖屏切换效果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#区域滚动效果"><span class="nav-number">1.0.3.</span> <span class="nav-text">区域滚动效果</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴佳宸</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/2249038142.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/2249038142.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/2249038142.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/2249038142.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/2249038142.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/2249038142.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/2249038142.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/2249038142.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/2249038142.github.io/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/2249038142.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/2249038142.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/2249038142.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/2249038142.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
