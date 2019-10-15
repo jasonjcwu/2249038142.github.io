@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/2249038142.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/2249038142.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/2249038142.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/2249038142.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/2249038142.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/2249038142.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/2249038142.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="vue,前端,项目,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="vue.js商城项目（二）（楼层导航） 轮播图在上个笔记讲了，可以用vant内置轮播图组件也可以用swiper组件,组件化形式写一个楼层推荐  首页布局先看效果图，大概就是这样   index.js引入路由 12345678910import ShoppingMall from &apos;@/components/pages/ShoppingMall&apos;Vue.use(Router)export defau">
+<meta name="keywords" content="vue,前端,项目">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue.js商城项目（二）（楼层导航）">
+<meta property="og:url" content="http://yoursite.com/2019/09/19/vue.js商城项目（二）/index.html">
+<meta property="og:site_name" content="Jason&#39;s Blog">
+<meta property="og:description" content="vue.js商城项目（二）（楼层导航） 轮播图在上个笔记讲了，可以用vant内置轮播图组件也可以用swiper组件,组件化形式写一个楼层推荐  首页布局先看效果图，大概就是这样   index.js引入路由 12345678910import ShoppingMall from &apos;@/components/pages/ShoppingMall&apos;Vue.use(Router)export defau">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://github.com/2249038142/picture/raw/master/vue_shopping/1568898689120.png">
+<meta property="og:image" content="https://github.com/2249038142/picture/raw/master/vue_shopping/1568898707521.png">
+<meta property="og:image" content="e:%5CBlog%5Cpicture%5C1568899075948.png">
+<meta property="og:image" content="https://github.com/2249038142/picture/raw/master/vue_shopping/1568898999140.png">
+<meta property="og:image" content="https://github.com/2249038142/picture/raw/master/vue_shopping/1568899469165.png">
+<meta property="og:updated_time" content="2019-10-15T10:41:20.160Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue.js商城项目（二）（楼层导航）">
+<meta name="twitter:description" content="vue.js商城项目（二）（楼层导航） 轮播图在上个笔记讲了，可以用vant内置轮播图组件也可以用swiper组件,组件化形式写一个楼层推荐  首页布局先看效果图，大概就是这样   index.js引入路由 12345678910import ShoppingMall from &apos;@/components/pages/ShoppingMall&apos;Vue.use(Router)export defau">
+<meta name="twitter:image" content="https://github.com/2249038142/picture/raw/master/vue_shopping/1568898689120.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/2249038142.github.io/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/09/19/vue.js商城项目（二）/">
+
+
+
+
+
+  <title>vue.js商城项目（二）（楼层导航） | Jason's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/2249038142.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jason's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">佳宸学习和分享笔记的地方</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/2249038142.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/2249038142.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/2249038142.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/2249038142.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2249038142.github.io/2019/09/19/vue.js商城项目（二）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴佳宸">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/2249038142.github.io/images/myHead.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jason's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">vue.js商城项目（二）（楼层导航）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-19T15:41:10+08:00">
+                2019-09-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/2249038142.github.io/categories/vue/" itemprop="url" rel="index">
+                    <span itemprop="name">vue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="vue-js商城项目（二）（楼层导航）"><a href="#vue-js商城项目（二）（楼层导航）" class="headerlink" title="vue.js商城项目（二）（楼层导航）"></a>vue.js商城项目（二）（楼层导航）</h1><blockquote>
+<p>轮播图在上个笔记讲了，可以用vant内置轮播图组件也可以用swiper组件,组件化形式写一个楼层推荐</p>
+</blockquote>
+<h3 id="首页布局"><a href="#首页布局" class="headerlink" title="首页布局"></a>首页布局</h3><p><strong>先看效果图，大概就是这样</strong></p>
+<p><img src="https://github.com/2249038142/picture/raw/master/vue_shopping/1568898689120.png" alt="1568898689120"></p>
+<p><img src="https://github.com/2249038142/picture/raw/master/vue_shopping/1568898707521.png" alt="1568898707521"></p>
+<p>index.js引入路由</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> ShoppingMall <span class="keyword">from</span> <span class="string">'@/components/pages/ShoppingMall'</span></span><br><span class="line">Vue.use(Router)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">    routes: [&#123;</span><br><span class="line">        path: <span class="string">'/'</span>,</span><br><span class="line">        name: <span class="string">'ShoppingMall'</span>,</span><br><span class="line">        component: ShoppingMall</span><br><span class="line">    &#125;]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="jsonServer模块模拟json数据"><a href="#jsonServer模块模拟json数据" class="headerlink" title="jsonServer模块模拟json数据"></a>jsonServer模块模拟json数据</h3><p>（1）安装</p>
+<blockquote>
+<p>$ npm install -g json-server</p>
+</blockquote>
+<p>（2）使用</p>
+<ul>
+<li><p>创建json文件db.json，把需要的数据写进来</p>
+</li>
+<li><p><img src="E:%5CBlog%5Cpicture%5C1568899075948.png" alt="1568899075948"></p>
+</li>
+<li><p>使用全局json-server命令，启动mock服务。这个mock服务，管理的数据，就是db.json。</p>
+<blockquote>
+<p>$ json-server –watch –port 3001 db.json</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="https://github.com/2249038142/picture/raw/master/vue_shopping/1568898999140.png" alt="1568898999140"></p>
+<h3 id="使用axios获取数据"><a href="#使用axios获取数据" class="headerlink" title="使用axios获取数据"></a>使用axios获取数据</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">axios(&#123;</span><br><span class="line">     url: <span class="string">"http://localhost:3001/data"</span>,</span><br><span class="line">     method: <span class="string">"get"</span></span><br><span class="line">   &#125;)</span><br><span class="line">     .then(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">       <span class="built_in">console</span>.log(response);</span><br><span class="line">       <span class="keyword">if</span> (response.status === <span class="number">200</span>) &#123;</span><br><span class="line">         <span class="keyword">this</span>.category = response.data.category;</span><br><span class="line">         <span class="keyword">this</span>.advertesPicture = response.data.advertesPicture.PICTURE_ADDRESS;</span><br><span class="line">         <span class="keyword">this</span>.recommendGoods = response.data.recommend;</span><br><span class="line">         <span class="keyword">this</span>.floorName = response.data.floorName</span><br><span class="line">         <span class="keyword">for</span>(<span class="keyword">let</span> key <span class="keyword">in</span> <span class="keyword">this</span>.floorName)&#123;</span><br><span class="line">           <span class="keyword">this</span>.floorContent[key] = response.data[key]</span><br><span class="line">         &#125;</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;)</span><br><span class="line">     .catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">       <span class="built_in">console</span>.log(error)</span><br><span class="line">     &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>视频老师给的json数据，获取各种信息</p>
+<h3 id="楼层组件化"><a href="#楼层组件化" class="headerlink" title="楼层组件化"></a>楼层组件化</h3><p><strong>父组件遍历</strong></p>
+<p><img src="https://github.com/2249038142/picture/raw/master/vue_shopping/1568899469165.png" alt="1568899469165"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 楼层 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"(item,index) in floorName"</span> <span class="attr">:key</span>=<span class="string">"index"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">floorComponent</span> <span class="attr">:floorData</span>=<span class="string">"floorContent[index]"</span> <span class="attr">:floorTitle</span>=<span class="string">"item"</span>&gt;</span><span class="tag">&lt;/<span class="name">floorComponent</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>使用<code>v-for</code>遍历这样json数据添加任意个楼层任意个数据都能遍历</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.floorName = response.data.floorName</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> key <span class="keyword">in</span> <span class="keyword">this</span>.floorName)&#123;</span><br><span class="line">  <span class="keyword">this</span>.floorContent[key] = response.data[key]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>先取到楼层名对象，然后遍历，</p>
+<p><code>response.data[key]</code>用变量取对象的值必须使用方括号[变量]</p>
+<p><strong>通过props传递给子组件</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"floor-rule"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">:src</span>=<span class="string">"floorData0.image"</span> <span class="attr">width</span>=<span class="string">"100%"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"(item, index) in floorData.slice(1)"</span> <span class="attr">:key</span>=<span class="string">"index"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">img</span> <span class="attr">:src</span>=<span class="string">"item.image"</span> <span class="attr">width</span>=<span class="string">"100%"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>第一个图片最大拎出来，然后再遍历<code>.slice(1)</code>截取第一个以后的对象</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/2249038142.github.io/tags/vue/" rel="tag"># vue</a>
+          
+            <a href="/2249038142.github.io/tags/前端/" rel="tag"># 前端</a>
+          
+            <a href="/2249038142.github.io/tags/项目/" rel="tag"># 项目</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2249038142.github.io/2019/09/18/swiper组件使用/" rel="next" title="swiper组件使用">
+                <i class="fa fa-chevron-left"></i> swiper组件使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2249038142.github.io/2019/09/22/vue.js商城项目（三）/" rel="prev" title="vue.js商城项目（三）">
+                vue.js商城项目（三） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/2249038142.github.io/images/myHead.jpg" alt="吴佳宸">
+            
+              <p class="site-author-name" itemprop="name">吴佳宸</p>
+              <p class="site-description motion-element" itemprop="description">前端博客</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/2249038142.github.io/archives/">
+              
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/2249038142.github.io/categories/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/2249038142.github.io/tags/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/2249038142" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:jiachenwu@foxmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vue-js商城项目（二）（楼层导航）"><span class="nav-number">1.</span> <span class="nav-text">vue.js商城项目（二）（楼层导航）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#首页布局"><span class="nav-number">1.0.1.</span> <span class="nav-text">首页布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jsonServer模块模拟json数据"><span class="nav-number">1.0.2.</span> <span class="nav-text">jsonServer模块模拟json数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用axios获取数据"><span class="nav-number">1.0.3.</span> <span class="nav-text">使用axios获取数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#楼层组件化"><span class="nav-number">1.0.4.</span> <span class="nav-text">楼层组件化</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴佳宸</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/2249038142.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/2249038142.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/2249038142.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/2249038142.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/2249038142.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/2249038142.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/2249038142.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/2249038142.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/2249038142.github.io/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/2249038142.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/2249038142.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/2249038142.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/2249038142.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
