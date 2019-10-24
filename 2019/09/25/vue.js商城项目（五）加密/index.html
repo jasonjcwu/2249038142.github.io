@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="vue.js商城项目（五）加密加盐处理把原来的密码里，加入一些其他的字符串，并且我们可以自己设置加入字符串的强度加密我们使用的MD5加密或者hash256加密算法，其实他们都是hash的算法。就是把你的密码进行一次不可逆的编译，这样就算别人得到了这个密码值，也不能进行直接登录操作安装与使用bcrypt">
+  <meta name="description" content="vue.js商城项目（五）加密加盐处理把原来的密码里，加入一些其他的字符串，并且我们可以自己设置加入字符串的强度加密我们使用的MD5加密或者hash256加密算法，其实他们都是hash的算法。就是把你的密码进行一次不可逆的编译，这样就算别人得到了这个密码值，也不能进行直接登录操作">
 <meta name="keywords" content="vue,前端,项目">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue.js商城项目（五）加密">
 <meta property="og:url" content="http://yoursite.com/2019/09/25/vue.js商城项目（五）加密/index.html">
 <meta property="og:site_name" content="Jason&#39;s Blog">
-<meta property="og:description" content="vue.js商城项目（五）加密加盐处理把原来的密码里，加入一些其他的字符串，并且我们可以自己设置加入字符串的强度加密我们使用的MD5加密或者hash256加密算法，其实他们都是hash的算法。就是把你的密码进行一次不可逆的编译，这样就算别人得到了这个密码值，也不能进行直接登录操作安装与使用bcrypt">
+<meta property="og:description" content="vue.js商城项目（五）加密加盐处理把原来的密码里，加入一些其他的字符串，并且我们可以自己设置加入字符串的强度加密我们使用的MD5加密或者hash256加密算法，其实他们都是hash的算法。就是把你的密码进行一次不可逆的编译，这样就算别人得到了这个密码值，也不能进行直接登录操作">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-10-15T10:38:25.106Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue.js商城项目（五）加密">
-<meta name="twitter:description" content="vue.js商城项目（五）加密加盐处理把原来的密码里，加入一些其他的字符串，并且我们可以自己设置加入字符串的强度加密我们使用的MD5加密或者hash256加密算法，其实他们都是hash的算法。就是把你的密码进行一次不可逆的编译，这样就算别人得到了这个密码值，也不能进行直接登录操作安装与使用bcrypt">
+<meta name="twitter:description" content="vue.js商城项目（五）加密加盐处理把原来的密码里，加入一些其他的字符串，并且我们可以自己设置加入字符串的强度加密我们使用的MD5加密或者hash256加密算法，其实他们都是hash的算法。就是把你的密码进行一次不可逆的编译，这样就算别人得到了这个密码值，也不能进行直接登录操作">
   <link rel="canonical" href="http://yoursite.com/2019/09/25/vue.js商城项目（五）加密/">
 
 
@@ -329,9 +329,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="vue-js商城项目（五）加密"><a href="#vue-js商城项目（五）加密" class="headerlink" title="vue.js商城项目（五）加密"></a>vue.js商城项目（五）加密</h1><h3 id="加盐处理"><a href="#加盐处理" class="headerlink" title="加盐处理"></a>加盐处理</h3><p>把原来的密码里，加入一些其他的字符串，并且我们可以自己设置加入字符串的强度</p><h3 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h3><p>我们使用的MD5加密或者hash256加密算法，其实他们都是hash的算法。就是把你的密码进行一次不可逆的编译，这样就算别人得到了这个密码值，也不能进行直接登录操作</p><h3 id="安装与使用bcrypt"><a href="#安装与使用bcrypt" class="headerlink" title="安装与使用bcrypt"></a>安装与使用bcrypt</h3><a id="more"></a>
+        <h1 id="vue-js商城项目（五）加密"><a href="#vue-js商城项目（五）加密" class="headerlink" title="vue.js商城项目（五）加密"></a>vue.js商城项目（五）加密</h1><h3 id="加盐处理"><a href="#加盐处理" class="headerlink" title="加盐处理"></a>加盐处理</h3><p>把原来的密码里，加入一些其他的字符串，并且我们可以自己设置加入字符串的强度</p><h3 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h3><p>我们使用的MD5加密或者hash256加密算法，其实他们都是hash的算法。就是把你的密码进行一次不可逆的编译，这样就算别人得到了这个密码值，也不能进行直接登录操作</p><a id="more"></a>
 
-<p><code>npm i bcryptjs --save</code></p>
+<h3 id="安装与使用bcrypt"><a href="#安装与使用bcrypt" class="headerlink" title="安装与使用bcrypt"></a>安装与使用bcrypt</h3><p><code>npm i bcryptjs --save</code></p>
 <p>安装bcryptjs  由js编写可以防止依赖错误，原生的有依赖visual stido ，python</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">userSchema.pre(<span class="string">'save'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">next</span>) </span>&#123;</span><br><span class="line">        bcrypt.genSalt(SALT_WORK_FACTOR, (err, salt) =&gt; &#123;</span><br><span class="line">            <span class="keyword">if</span> (err) <span class="keyword">return</span> next(err)</span><br><span class="line">            bcrypt.hash(<span class="keyword">this</span>.passWord, salt, (err, hash) =&gt; &#123;</span><br><span class="line">                <span class="keyword">if</span> (err) <span class="keyword">return</span> next(err)</span><br><span class="line">                <span class="keyword">this</span>.passWord = hash</span><br><span class="line">                next()</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
 
@@ -441,7 +441,7 @@
         
           <a href="/2249038142.github.io/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

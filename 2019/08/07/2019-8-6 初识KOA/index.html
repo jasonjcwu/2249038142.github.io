@@ -55,13 +55,13 @@
   };
 </script>
 
-  <meta name="description" content="初识KOA（上） 新一代node框架入门，前置知识：node基础,数据库基础，了解Koa怎么搭建服务器的,不适合通读，推荐跟文章实际操作（手把手教学） 如果有知识点未知请看：ejskoa文档前端er，你真的会用 async 吗？async/await 应知应会如何避开 async/await 地狱之前对JS异步,这一块有点生疏，多看点博客">
+  <meta name="description" content="初识KOA（上） 新一代node框架入门，前置知识：node基础,数据库基础，了解Koa怎么搭建服务器的,不适合通读，推荐跟文章实际操作（手把手教学）">
 <meta name="keywords" content="node,koa,后端">
 <meta property="og:type" content="article">
 <meta property="og:title" content="初识KOA（上）">
 <meta property="og:url" content="http://yoursite.com/2019/08/07/2019-8-6 初识KOA/index.html">
 <meta property="og:site_name" content="Jason&#39;s Blog">
-<meta property="og:description" content="初识KOA（上） 新一代node框架入门，前置知识：node基础,数据库基础，了解Koa怎么搭建服务器的,不适合通读，推荐跟文章实际操作（手把手教学） 如果有知识点未知请看：ejskoa文档前端er，你真的会用 async 吗？async/await 应知应会如何避开 async/await 地狱之前对JS异步,这一块有点生疏，多看点博客">
+<meta property="og:description" content="初识KOA（上） 新一代node框架入门，前置知识：node基础,数据库基础，了解Koa怎么搭建服务器的,不适合通读，推荐跟文章实际操作（手把手教学）">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/2249038142/picture/raw/master/1565091025993.png">
 <meta property="og:image" content="https://github.com/2249038142/picture/raw/master/1565097503676.png">
@@ -74,7 +74,7 @@
 <meta property="og:updated_time" content="2019-08-08T02:20:26.401Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初识KOA（上）">
-<meta name="twitter:description" content="初识KOA（上） 新一代node框架入门，前置知识：node基础,数据库基础，了解Koa怎么搭建服务器的,不适合通读，推荐跟文章实际操作（手把手教学） 如果有知识点未知请看：ejskoa文档前端er，你真的会用 async 吗？async/await 应知应会如何避开 async/await 地狱之前对JS异步,这一块有点生疏，多看点博客">
+<meta name="twitter:description" content="初识KOA（上） 新一代node框架入门，前置知识：node基础,数据库基础，了解Koa怎么搭建服务器的,不适合通读，推荐跟文章实际操作（手把手教学）">
 <meta name="twitter:image" content="https://github.com/2249038142/picture/raw/master/1565091025993.png">
   <link rel="canonical" href="http://yoursite.com/2019/08/07/2019-8-6 初识KOA/">
 
@@ -340,10 +340,10 @@
       
         <h1 id="初识KOA（上）"><a href="#初识KOA（上）" class="headerlink" title="初识KOA（上）"></a>初识KOA（上）</h1><blockquote>
 <p>新一代node框架入门，前置知识：node基础,数据库基础，了解Koa怎么搭建服务器的,不适合通读，<strong>推荐跟文章实际操作</strong>（手把手教学）</p>
-</blockquote><p>如果有<strong>知识点</strong>未知请看：</p><p><a href="https://ejs.bootcss.com/" target="_blank" rel="noopener">ejs</a><br><a href="https://koa.bootcss.com/" target="_blank" rel="noopener">koa文档</a><br><a href="https://juejin.im/post/5c0397186fb9a049b5068e54" target="_blank" rel="noopener">前端er，你真的会用 async 吗？</a><br><a href="https://juejin.im/post/5d116ae5518825328779c9d5" target="_blank" rel="noopener">async/await 应知应会</a><br><a href="https://juejin.im/post/5b9db6925188255c3b7d78cb" target="_blank" rel="noopener">如何避开 async/await 地狱</a></p><p>之前对JS异步,这一块有点生疏，多看点博客</p><a id="more"></a>
-
-
-
+</blockquote><a id="more"></a>
+<p>如果有<strong>知识点</strong>未知请看：</p>
+<p><a href="https://ejs.bootcss.com/" target="_blank" rel="noopener">ejs</a><br><a href="https://koa.bootcss.com/" target="_blank" rel="noopener">koa文档</a><br><a href="https://juejin.im/post/5c0397186fb9a049b5068e54" target="_blank" rel="noopener">前端er，你真的会用 async 吗？</a><br><a href="https://juejin.im/post/5d116ae5518825328779c9d5" target="_blank" rel="noopener">async/await 应知应会</a><br><a href="https://juejin.im/post/5b9db6925188255c3b7d78cb" target="_blank" rel="noopener">如何避开 async/await 地狱</a></p>
+<p>之前对JS异步,这一块有点生疏，多看点博客</p>
 <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Koa 是一个新的 web 框架，由 Express 幕后的原班人马打造， 致力于成为 web 应用和 API 开发领域中的一个更小、更富有表现力、更健壮的基石。 通过利用 async 函数，Koa 帮你丢弃回调函数，并有力地增强错误处理。 Koa 并没有捆绑任何中间件， 而是提供了一套优雅的方法，帮助您快速而愉快地编写服务端应用程序。</p>
 <p><strong>1.新建文件夹</strong></p>
 <p>初始化package.json，终端输入</p>
@@ -513,7 +513,7 @@
         
           <a href="/2249038142.github.io/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

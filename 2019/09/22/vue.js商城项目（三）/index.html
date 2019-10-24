@@ -55,19 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="vue.js商城项目（三）（filter）精度价格 在很多电商项目中，有许多价格标签需要精确到小数点后两位。 创建一个js文件123export function toMoney(money = 0) &amp;#123;    return money.toFixed(2)&amp;#125;精确到小数点后两位在需要的文件引入">
+  <meta name="description" content="vue.js商城项目（三）（filter）精度价格 在很多电商项目中，有许多价格标签需要精确到小数点后两位。 创建一个js文件">
 <meta name="keywords" content="vue,前端,项目">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue.js商城项目（三）">
 <meta property="og:url" content="http://yoursite.com/2019/09/22/vue.js商城项目（三）/index.html">
 <meta property="og:site_name" content="Jason&#39;s Blog">
-<meta property="og:description" content="vue.js商城项目（三）（filter）精度价格 在很多电商项目中，有许多价格标签需要精确到小数点后两位。 创建一个js文件123export function toMoney(money = 0) &amp;#123;    return money.toFixed(2)&amp;#125;精确到小数点后两位在需要的文件引入">
+<meta property="og:description" content="vue.js商城项目（三）（filter）精度价格 在很多电商项目中，有许多价格标签需要精确到小数点后两位。 创建一个js文件">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/2249038142/picture/raw/master/vue_shopping/1568899469165.png">
 <meta property="og:updated_time" content="2019-10-15T10:39:17.977Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue.js商城项目（三）">
-<meta name="twitter:description" content="vue.js商城项目（三）（filter）精度价格 在很多电商项目中，有许多价格标签需要精确到小数点后两位。 创建一个js文件123export function toMoney(money = 0) &amp;#123;    return money.toFixed(2)&amp;#125;精确到小数点后两位在需要的文件引入">
+<meta name="twitter:description" content="vue.js商城项目（三）（filter）精度价格 在很多电商项目中，有许多价格标签需要精确到小数点后两位。 创建一个js文件">
 <meta name="twitter:image" content="https://github.com/2249038142/picture/raw/master/vue_shopping/1568899469165.png">
   <link rel="canonical" href="http://yoursite.com/2019/09/22/vue.js商城项目（三）/">
 
@@ -333,12 +333,12 @@
       
         <h1 id="vue-js商城项目（三）"><a href="#vue-js商城项目（三）" class="headerlink" title="vue.js商城项目（三）"></a>vue.js商城项目（三）</h1><h3 id="（filter）精度价格"><a href="#（filter）精度价格" class="headerlink" title="（filter）精度价格"></a>（filter）精度价格</h3><blockquote>
 <p>在很多电商项目中，有许多价格标签需要精确到小数点后两位。</p>
-</blockquote><p><strong>创建一个js文件</strong></p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">toMoney</span>(<span class="params">money = <span class="number">0</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> money.toFixed(<span class="number">2</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>精确到小数点后两位</p><p><strong>在需要的文件引入</strong></p><a id="more"></a>
+</blockquote><p><strong>创建一个js文件</strong></p><a id="more"></a>
 
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">toMoney</span>(<span class="params">money = <span class="number">0</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> money.toFixed(<span class="number">2</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-
-
+<p>精确到小数点后两位</p>
+<p><strong>在需要的文件引入</strong></p>
 <p><code>import {toMoney} from &quot;@/filter/moneyFilter.js&quot;</code></p>
 <p>script中写filter方法</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">filters:&#123;</span><br><span class="line"></span><br><span class="line">    moneyFilter(money)&#123;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> toMoney(money)</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
@@ -461,7 +461,7 @@
         
           <a href="/2249038142.github.io/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
