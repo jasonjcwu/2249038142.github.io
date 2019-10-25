@@ -1,6 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>阿里云部署新手教程（一）（购买服务器，免密登陆）</title>
+    <url>/2249038142.github.io/2019/10/25/%E9%98%BF%E9%87%8C%E4%BA%91%E9%83%A8%E7%BD%B2%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+    <content><![CDATA[<h1 id="阿里云部署项目新手教程（一）"><a href="#阿里云部署项目新手教程（一）" class="headerlink" title="阿里云部署项目新手教程（一）"></a>阿里云部署项目新手教程（一）</h1><h2 id="（购买服务器，免密登陆）"><a href="#（购买服务器，免密登陆）" class="headerlink" title="（购买服务器，免密登陆）"></a>（购买服务器，免密登陆）</h2><h3 id="购买服务器"><a href="#购买服务器" class="headerlink" title="购买服务器"></a>购买服务器</h3><p>阿里云有学生优惠10元一个月，我选择的是轻量应用服务器，有ssd内存，更高的带宽，但是限量1000G应该够用。选择系统镜像CentOS操作系统。</p><a id="more"></a>
+<p>轻量应用服务器操作起来更简单。</p>
+<p><img src="https://github.com/2249038142/picture/raw/master/nodeToService/1572003725828.png" alt="1572003725828"></p>
+<p><img src="https://github.com/2249038142/picture/raw/master/nodeToService/1572004461160.png" alt="1572004461160"></p>
+<h3 id="如何远程连接"><a href="#如何远程连接" class="headerlink" title="如何远程连接"></a>如何远程连接</h3><p>打开cmd终端输入<code>ssh root@0.0.0.0</code>root表示根用户名@后面接公网IP地址</p>
+<p>连上来了</p>
+<p><img src="https://github.com/2249038142/picture/raw/master/nodeToService/1572004847359.png" alt="1572004847359"></p>
+<h3 id="保存ssh公钥免密登陆"><a href="#保存ssh公钥免密登陆" class="headerlink" title="保存ssh公钥免密登陆"></a>保存ssh公钥免密登陆</h3><p>终端 在~目录下 cd .ssh 进去.ssh文件夹，输入，没有ssh文件夹 创建 <code>md .ssh</code> bash<code>mkdir</code></p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C "myemail@myemail.com"</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Enter file in which to save the key (/home/Administrator/.ssh/id_rsa): C:\Users\Administrator\.ssh\id_rsa</span><br></pre></td></tr></table></figure>
+
+<p>然后它会要你填写地址，dos得自己填，要不然会报错，因为unix命令都是相反的斜杠，成功之后生成了公钥私钥文件</p>
+<p><img src="https://github.com/2249038142/picture/raw/master/nodeToService/1572008937745.png" alt="1572008937745"></p>
+<p><strong>然后改回bash终端写命令，dos cmd 太不兼容了😥，全是坑，用git bash，ubantu bash 都可</strong></p>
+<p><img src="https://github.com/2249038142/picture/raw/master/nodeToService/1572009417347.png" alt="1572009417347"></p>
+<p><code>scp id_rsa.pub root@0.0.0.0:.</code></p>
+<p>解释：复制 这个公钥 到你服务器root用户下的（默认文件夹下<code>:.</code>）</p>
+<p>登陆服务器检查一下，文件已经过来了</p>
+<p><img src="https://github.com/2249038142/picture/raw/master/nodeToService/1572009688607.png" alt="1572009688607"></p>
+<p><code># cat ~/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</code>把公钥文件追加进来</p>
+<p><code>vim</code>打开这个文件确认一下</p>
+<p>然后重启一下<code># systemctl restart sshd</code></p>
+<p>回到本地，删了公钥<code>$ rm id_rsa.pub</code></p>
+<p>新建配置文件</p>
+<p><img src="https://github.com/2249038142/picture/raw/master/nodeToService/1572010250446.png" alt="1572010250446"></p>
+<p><code>$ code config</code>vscode 打开config,配置</p>
+<p><img src="https://github.com/2249038142/picture/raw/master/nodeToService/1572010927402.png" alt="1572010927402"></p>
+<p><code>ssh 用户名</code>免密登陆成功😎 </p>
+<p><img src="https://github.com/2249038142/picture/raw/master/nodeToService/1572010957144.png" alt="1572010957144"></p>
+<h3 id="git-push-到github-ssh-免密推送"><a href="#git-push-到github-ssh-免密推送" class="headerlink" title="git push 到github ssh 免密推送"></a>git push 到github ssh 免密推送</h3><p>把之前的公钥写进来</p>
+<p><img src="https://github.com/2249038142/picture/raw/master/nodeToService/1572015770953.png" alt="1572015770953"></p>
+<p>把https推送修改成ssh推送</p>
+<p><code>git remote set-url origin +ssh链接</code></p>
+<p><img src="https://github.com/2249038142/picture/raw/master/nodeToService/1572015579162.png" alt="1572015579162"></p>
+<p>免密推送成功😎</p>
+<p><img src="https://github.com/2249038142/picture/raw/master/nodeToService/1572015804042.png" alt="1572015804042"></p>
+]]></content>
+      <categories>
+        <category>服务器部署</category>
+      </categories>
+      <tags>
+        <tag>项目</tag>
+        <tag>部署，服务器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>1024程序员节+项目总结+日常</title>
+    <url>/2249038142.github.io/2019/10/24/1024%E7%A8%8B%E5%BA%8F%E5%91%98%E8%8A%82/</url>
+    <content><![CDATA[<h1 id="1024程序员节-项目总结-日常"><a href="#1024程序员节-项目总结-日常" class="headerlink" title="1024程序员节+项目总结+日常"></a>1024程序员节+项目总结+日常</h1><blockquote>
+<p> 今天程序员过节，自己呢，从学生向程序员慢慢进发了。</p>
+</blockquote><p>学习了一年多，觉得自己也算是入门前端这个领域了。虽然是很日常的一天，但纪念第一次有了从学生到程序员的认同感的节日是有意义的。</p><a id="more"></a>
+
+<p><strong>说说我今天日常的一天。</strong></p>
+<p>上午买了腾讯课堂的项目部署打折，这个商城项目写得也差不多了，在手机上测试了一下，修改了一些些bug</p>
+<p><strong>1.点击商品详情页商品信息重复没有刷新</strong></p>
+<p>是由于之前为了页面不刷新加了<code>&lt;keep-alive&gt;</code>导致所有页面重复加载就不会触发刷新。</p>
+<p>在router index.js 文件下      <code>meta: {  keepAlive:false //不需要被缓存的组件 }</code>在不需要缓存的页面加上配置。</p>
+<p>在App.vue 文件下 对需要缓存的页面做一个判断</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;keep-alive&gt;</span><br><span class="line">&lt;router-view v-if=&quot;$route.meta.keepAlive&quot; /&gt;</span><br><span class="line">&lt;/keep-alive&gt;</span><br><span class="line">&lt;router-view v-if=&quot;!$route.meta.keepAlive&quot; /&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.如何在手机端调试写好的程序</strong></p>
+<ul>
+<li><p>首先要在同一个局域网下，手机与电脑在同一个局域网内，<strong>把防火墙关了</strong>，防火墙是个大坑，试了好久</p>
+</li>
+<li><p>cmd终端命令<code>ipconfig</code> 查看无线网的IP地址，在config&gt;index.js 配置下      <code>host: &#39;192.168.137.1&#39;,</code>  域名改成你的IP</p>
+</li>
+<li><p>请求接口配置文件也改成你的IP<code>const LOCALURL = &quot;http://192.168.137.1:3000/&quot;</code>成功访问后台接口</p>
+</li>
+<li><p>如果有json-server 模拟数据，在package.json=&gt;scripts下把host改为0.0.0.0就可以让所有IP访问到</p>
+</li>
+</ul>
+<p><code>&quot;json:server&quot;: &quot;json-server --watch --host 0.0.0.0 --port 3001 goods.json&quot;</code></p>
+<h3 id="项目总结"><a href="#项目总结" class="headerlink" title="项目总结"></a>项目总结</h3><p>前期跟着老师视屏做，照着视频敲，学完后发现这个项目不太完善，页面很多功能都没做，老师的教程也结束了，烂尾了，在掘金看技术胖的赞那么多，觉得看他的视频总没错，只能说期望太高了。那就只有自己就把一些不满意的地方都改了，这样也好，能有自己思考的空间。</p>
+<p><strong>个人页面</strong>直接没讲，我就自己加了有赞的个人页面框架，把<strong>登陆注册</strong>加进去了。其他功能接口都没写。</p>
+<p><img src="https://github.com/2249038142/picture/raw/master/vue_shopping/1572017219183.png" alt="1572017219183"></p>
+<p><strong>购物车</strong>UI也做了相应优化，计算总价，checkbox。</p>
+<p><img src="https://github.com/2249038142/picture/raw/master/vue_shopping/1572017252727.png" alt="1572017252727"></p>
+<p><strong>商品详情</strong>统一用了vantUI组件，之前实在难看。</p>
+<p><img src="https://github.com/2249038142/picture/raw/master/vue_shopping/1572017542406.png" alt="1572017542406"></p>
+<p><strong>列表商品</strong>之前爬的图片链接失效，直接在后台把失效图片给洗了一遍。</p>
+<p><img src="https://github.com/2249038142/picture/raw/master/vue_shopping/1572017315053.png" alt="1572017315053"></p>
+<p>使用axios请求，把能请求到的数据写入新文件，请求不到就抛弃。之前先存一个数组，再一概写进去这是不行的，会返回一个空数组。多个异步请求，函数直接返回了。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">newData.map(<span class="keyword">async</span>(value, index) =&gt; &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">let</span> result = <span class="keyword">await</span> axios.get(value.IMAGE1)</span><br><span class="line">                <span class="comment">//console.log(value)</span></span><br><span class="line">                fs.appendFile(<span class="string">'./data_json/newGoods2.json'</span>,<span class="built_in">JSON</span>.stringify(value)+<span class="string">','</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err, ret</span>) </span>&#123;</span><br><span class="line">                    <span class="keyword">if</span>(err) &#123;<span class="keyword">throw</span> err&#125;</span><br><span class="line">                    &#125;)</span><br><span class="line">            &#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(err + <span class="string">'bb'</span>)</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+
+<p>也算彻底弄懂了JS的运行顺序，异步同步，宏任务微任务，还有async/await，看了几篇文章。以后再单独拿出来一篇文章总结把。</p>
+<p>mongoDB数据库，增加了一个休闲食品类别，把食品饮料栏变为两栏，要不然这一栏的子分类太多了，还有一个白酒的分类，里面数据却全是生鲜，技术胖老师完全不走心。我全都改了。</p>
+<p>后期，还要把<strong>首页的所有图片链接跳转商品详情</strong>给完善了，</p>
+<p><img src="https://github.com/2249038142/picture/raw/master/vue_shopping/1572017598297.png" alt="1572017598297"></p>
+<p><img src="https://github.com/2249038142/picture/raw/master/vue_shopping/1572017627898.png" alt="1572017627898"></p>
+<p><em>第二天完善了</em></p>
+<p>首页分类跳到分类详情，在分类栏绑定@click方法，传入ID值</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">goCategory(index)&#123;</span><br><span class="line">  <span class="comment">//console.log(index)</span></span><br><span class="line">  <span class="keyword">this</span>.$router.push(&#123;<span class="attr">name</span>:<span class="string">'CategoryList'</span>,<span class="attr">params</span>:&#123;<span class="attr">mallCategoryId</span>:index&#125;&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>跳转到商品分类，然后在<code>activated()</code>钩子函数中把具体页号传过来，默认第一个</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">activated() &#123;</span><br><span class="line">  <span class="keyword">let</span> firstCategoryIndex = <span class="keyword">this</span>.$route.params.mallCategoryId || <span class="number">0</span></span><br><span class="line">  <span class="keyword">this</span>.clickCategory(firstCategoryIndex, firstCategoryIndex + <span class="number">1</span>)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>应用clickCategory方法点击到指定分类栏。</p>
+<p>之前写在<code>create()</code>钩子中，没有效果，问题页面是keep-alive存在缓存，不会重新加载。</p>
+<p><strong>知识点</strong>:    钩子函数的执行顺序</p>
+<p>使用<code>keep-alive</code>的初次加载顺序</p>
+<p><code>beforeRouteEnter --&gt; created --&gt; mounted --&gt; activated --&gt; deactivated</code> </p>
+<p>再次进入缓存的页面，只会触发<code>beforeRouteEnter --&gt;activated --&gt; deactivated</code></p>
+<p>created和mounted不会再执行。</p>
+<p>关于vue的路由还需要继续升入了解，现在知道的还太浅了。</p>
+<p>之后学习一下怎么挂在服务器。</p>
+<hr>
+<h3 id="说一说傍晚的狗血京东校招"><a href="#说一说傍晚的狗血京东校招" class="headerlink" title="说一说傍晚的狗血京东校招"></a>说一说傍晚的狗血京东校招</h3><p>群里通知说今天晚上有京东的校招，下午赶紧把简历完善了去试试水。</p>
+<p>兴致勃勃去那里，开始宣讲，先是说京东怎么待遇好，几万员工，什么环境，强东哥怎么怎么厉害。然后ppt开始显示<strong>京东顾问</strong>？？？我觉得好像是京东，不对劲，讲师开始宣传怎么当客服来了。三千一个月的京东<strong>客服</strong>，太会蹭京东的热点了，还只招客服3000一个月。。。“就没人提问了吗，都是家里有矿的可以走了”，然后我叫室友一起溜走了。本科生当客服，真有人愿意吗？纯体力活，不值得给强哥卖命，有时间还是学点真本事吧。</p>
+<h3 id="再说一说上周的狗血拓维"><a href="#再说一说上周的狗血拓维" class="headerlink" title="再说一说上周的狗血拓维"></a>再说一说上周的狗血拓维</h3><p>去拓维看热闹。校招招60个java，就5个前端，笔试题全是java，就只有两个前端题一个填空，数组合并字符串：<code>arr.join(&#39;&#39;)</code>，手写代码打点计时器用<code>setinterval+闭包函数</code>写了，交个白卷勾个前端，走了。</p>
+<p>结果回来路上打电话，叫回去面试，面试官说他是团队LEADER，java后台但是懂一些前端。</p>
+<p>面试官问我小程序生命周期，学了几个月我有点模糊忘记了，硬着头皮把vue生命周期说得头头是道,面试官说我‘说得不错’。</p>
+<p>然后要我写个移动登陆布局，他rem都不知道，他觉得rem是栅格布局，跟他解释根元素字体大小都不懂，他把rem理解为栅格布局？？</p>
+<p><code>transform：translate</code>也不知道我说是位移,他硬是说动画，我说动画是<code>transition</code>或者用<code>animation</code>可以实现，估计他没听懂，说我平常是不是复制粘贴。</p>
+<p>我说我没有，我都是自己写代码，我觉得可能登陆布局没什么好证明实力的，立马给他手写了个双飞翼部。就叫我等通知就没有然后了。</p>
+<p>我觉得根本不懂前端基础就来面试别人，不懂装懂批判别人很可耻，现场没有前端可以电话别的前端同事阿。</p>
+<p>拉黑拓维公司，大一期末的时候，给粮食局装新系统，招实习生去装，我积极报名了，期末过后培训了三天结果还是水了我们四个大一的，就去了一个大一，其余都是大二大三一个没刷，根本没有一行代码，就是装系统体力活，凭什么刷我们低年级。</p>
+<p>算是看透这个公司了，给政府，华为做外包，其美名曰：‘战略合作’。</p>
+<hr>
+<p>吐槽归吐槽，毕竟二流本科，也没什么好资源，要怪也只能怪自己高中只有这个水平进这样的学校。有机会进来工作室，也算是一种幸运，看外面的世界，心态格局就跟班上有些还在浑浑噩噩度日不是一个档次了，努力努力争取跳出平凡。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+        <tag>前端</tag>
+        <tag>项目</tag>
+        <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>vue.js商城项目（九）tabbar</title>
     <url>/2249038142.github.io/2019/10/21/vue.js%E5%95%86%E5%9F%8E%E9%A1%B9%E7%9B%AE%EF%BC%88%E4%B9%9D%EF%BC%89tabbar/</url>
     <content><![CDATA[<h1 id="vue-js商城项目（九）tabbar"><a href="#vue-js商城项目（九）tabbar" class="headerlink" title="vue.js商城项目（九）tabbar"></a>vue.js商城项目（九）tabbar</h1><h3 id="取消路由中的-号"><a href="#取消路由中的-号" class="headerlink" title="取消路由中的#号"></a>取消路由中的#号</h3><p>在new Router()的下一行添加上：mode: ‘history’,</p><a id="more"></a>
