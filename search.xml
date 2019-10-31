@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>服务器部署node新手教程（二）</title>
-    <url>/2249038142.github.io/2019/10/31/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2node%E6%95%99%E7%A8%8B%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+    <url>/2019/10/31/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2node%E6%95%99%E7%A8%8B%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
     <content><![CDATA[<h1 id="服务器部署node教程（二）"><a href="#服务器部署node教程（二）" class="headerlink" title="服务器部署node教程（二）"></a>服务器部署node教程（二）</h1><blockquote>
 <p> 期间经历了很多坑，多数还是找到了解决办法，相信经历了第一次，以后就能孰能生巧了。</p>
 </blockquote><h3 id="安装最新的node-js环境"><a href="#安装最新的node-js环境" class="headerlink" title="安装最新的node.js环境"></a>安装最新的node.js环境</h3><a id="more"></a>
@@ -134,7 +134,7 @@
   </entry>
   <entry>
     <title>阿里云部署新手教程（一）（购买服务器，免密登陆）</title>
-    <url>/2249038142.github.io/2019/10/25/%E9%98%BF%E9%87%8C%E4%BA%91%E9%83%A8%E7%BD%B2%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+    <url>/2019/10/25/%E9%98%BF%E9%87%8C%E4%BA%91%E9%83%A8%E7%BD%B2%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89/</url>
     <content><![CDATA[<h1 id="阿里云部署项目新手教程（一）"><a href="#阿里云部署项目新手教程（一）" class="headerlink" title="阿里云部署项目新手教程（一）"></a>阿里云部署项目新手教程（一）</h1><h2 id="（购买服务器，免密登陆）"><a href="#（购买服务器，免密登陆）" class="headerlink" title="（购买服务器，免密登陆）"></a>（购买服务器，免密登陆）</h2><h3 id="购买服务器"><a href="#购买服务器" class="headerlink" title="购买服务器"></a>购买服务器</h3><p>阿里云有学生优惠10元一个月，我选择的是轻量应用服务器，有ssd内存，更高的带宽，但是限量1000G应该够用。选择系统镜像CentOS操作系统。</p><a id="more"></a>
 <p>轻量应用服务器操作起来更简单。</p>
 <p><img src="https://github.com/2249038142/picture/raw/master/nodeToService/1572003725828.png" alt="1572003725828"></p>
@@ -183,7 +183,7 @@
   </entry>
   <entry>
     <title>1024程序员节+项目总结+日常</title>
-    <url>/2249038142.github.io/2019/10/24/1024%E7%A8%8B%E5%BA%8F%E5%91%98%E8%8A%82/</url>
+    <url>/2019/10/24/1024%E7%A8%8B%E5%BA%8F%E5%91%98%E8%8A%82/</url>
     <content><![CDATA[<h1 id="1024程序员节-项目总结-日常"><a href="#1024程序员节-项目总结-日常" class="headerlink" title="1024程序员节+项目总结+日常"></a>1024程序员节+项目总结+日常</h1><blockquote>
 <p> 今天程序员过节，自己呢，从学生向程序员慢慢进发了。</p>
 </blockquote><p>学习了一年多，觉得自己也算是入门前端这个领域了。虽然是很日常的一天，但纪念第一次有了从学生到程序员的认同感的节日是有意义的。</p><a id="more"></a>
@@ -268,7 +268,7 @@
   </entry>
   <entry>
     <title>vue.js商城项目（九）tabbar</title>
-    <url>/2249038142.github.io/2019/10/21/vue.js%E5%95%86%E5%9F%8E%E9%A1%B9%E7%9B%AE%EF%BC%88%E4%B9%9D%EF%BC%89tabbar/</url>
+    <url>/2019/10/21/vue.js%E5%95%86%E5%9F%8E%E9%A1%B9%E7%9B%AE%EF%BC%88%E4%B9%9D%EF%BC%89tabbar/</url>
     <content><![CDATA[<h1 id="vue-js商城项目（九）tabbar"><a href="#vue-js商城项目（九）tabbar" class="headerlink" title="vue.js商城项目（九）tabbar"></a>vue.js商城项目（九）tabbar</h1><h3 id="取消路由中的-号"><a href="#取消路由中的-号" class="headerlink" title="取消路由中的#号"></a>取消路由中的#号</h3><p>在new Router()的下一行添加上：mode: ‘history’,</p><a id="more"></a>
 <h3 id="使用vant-tabBar组件"><a href="#使用vant-tabBar组件" class="headerlink" title="使用vant tabBar组件"></a>使用vant tabBar组件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;van-tabbar</span><br><span class="line">      v-model=&quot;active&quot;</span><br><span class="line">    &gt;</span><br><span class="line">      &lt;van-tabbar-item icon=&quot;shop&quot; to=&apos;/&apos;&gt;首页&lt;/van-tabbar-item&gt;</span><br><span class="line">      &lt;van-tabbar-item icon=&quot;records&quot; to=&apos;/CategoryList&apos;&gt;分类&lt;/van-tabbar-item&gt;</span><br><span class="line">      &lt;van-tabbar-item icon=&quot;cart&quot; to=&apos;/Cart&apos;&gt;购物车&lt;/van-tabbar-item&gt;</span><br><span class="line">      &lt;van-tabbar-item icon=&quot;contact&quot; to=&apos;User&apos;&gt;我的&lt;/van-tabbar-item&gt;</span><br><span class="line">    &lt;/van-tabbar&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name:&apos;Tab&apos;,</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      active: 0,</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  watch: &#123;</span><br><span class="line">    $route(to, from) &#123;</span><br><span class="line">      console.log(to)</span><br><span class="line">      switch (to.fullPath) &#123;</span><br><span class="line">        case &apos;/&apos;:</span><br><span class="line">          this.active = 0;</span><br><span class="line">          break;</span><br><span class="line">        case &apos;/CategoryList&apos;:</span><br><span class="line">          this.active = 1;</span><br><span class="line">          break;</span><br><span class="line">        case &apos;/Cart&apos;:</span><br><span class="line">          this.active = 2;</span><br><span class="line">          break;</span><br><span class="line">        case &apos;/User&apos;:</span><br><span class="line">          this.active = 3;</span><br><span class="line">          break;</span><br><span class="line">        default:</span><br><span class="line">          this.active = 0;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
@@ -291,7 +291,7 @@
   </entry>
   <entry>
     <title>vue.js商城项目（八）购物车</title>
-    <url>/2249038142.github.io/2019/10/17/vue.js%E5%95%86%E5%9F%8E%E9%A1%B9%E7%9B%AE%EF%BC%88%E5%85%AB%EF%BC%89/</url>
+    <url>/2019/10/17/vue.js%E5%95%86%E5%9F%8E%E9%A1%B9%E7%9B%AE%EF%BC%88%E5%85%AB%EF%BC%89/</url>
     <content><![CDATA[<h1 id="vue-js商城项目（八）购物车"><a href="#vue-js商城项目（八）购物车" class="headerlink" title="vue.js商城项目（八）购物车"></a>vue.js商城项目（八）购物车</h1><h3 id="得到购物车数据方法编写"><a href="#得到购物车数据方法编写" class="headerlink" title="得到购物车数据方法编写"></a>得到购物车数据方法编写</h3><p>先要取得localStorage里的数据，我们先在data里注册两个属性<code>cartInfo</code>(购物车中商品的信息)和<code>isEmpty</code>（购物是否为空的标识，方便页面呈现）,然后再编写具体的<code>getCartInfo()</code>方法</p><a id="more"></a>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//得到购物车的商品</span></span><br><span class="line">  getCartInfo() &#123;</span><br><span class="line">    <span class="comment">//判断localStorage里是否有购物车数据</span></span><br><span class="line">    <span class="keyword">if</span> (localStorage.cartInfo) &#123;</span><br><span class="line">      <span class="comment">//如果有数据，我们去除并赋值给cartInfo</span></span><br><span class="line">      <span class="keyword">this</span>.cartInfo = <span class="built_in">JSON</span>.parse(localStorage.cartInfo)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//打印到控制台查看效果</span></span><br><span class="line">    <span class="comment">//console.log(' this.cartInfo:' + JSON.stringify(this.cartInfo))</span></span><br><span class="line">    <span class="keyword">this</span>.isEmpty = <span class="keyword">this</span>.cartInfo.length &gt; <span class="number">0</span> ? <span class="literal">false</span> : <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
 
@@ -322,7 +322,7 @@
   </entry>
   <entry>
     <title>vue.js商城项目（七）</title>
-    <url>/2249038142.github.io/2019/10/15/vue.js%E5%95%86%E5%9F%8E%E9%A1%B9%E7%9B%AE%EF%BC%88%E4%B8%83%EF%BC%89/</url>
+    <url>/2019/10/15/vue.js%E5%95%86%E5%9F%8E%E9%A1%B9%E7%9B%AE%EF%BC%88%E4%B8%83%EF%BC%89/</url>
     <content><![CDATA[<h1 id="vue-js商城项目（七）"><a href="#vue-js商城项目（七）" class="headerlink" title="vue.js商城项目（七）"></a>vue.js商城项目（七）</h1><h3 id="数据提纯"><a href="#数据提纯" class="headerlink" title="数据提纯"></a>数据提纯</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">fs.readFile(<span class="string">'./goods.json'</span>, <span class="string">'utf8'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> newData = <span class="built_in">JSON</span>.parse(data)</span><br><span class="line">    <span class="keyword">let</span> i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">let</span> pushData = []</span><br><span class="line">    newData.RECORDS.map(<span class="function"><span class="keyword">function</span>(<span class="params">value, index</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (value.IMAGE1 != <span class="literal">null</span>) &#123;</span><br><span class="line">            i++</span><br><span class="line">            <span class="built_in">console</span>.log(value.NAME)</span><br><span class="line">            pushData.push(value)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    fs.writeFile(<span class="string">'./newGoods.json'</span>, <span class="built_in">JSON</span>.stringify(pushData), <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (err) <span class="built_in">console</span>.log(<span class="string">'写文件操作失败'</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">console</span>.log(<span class="string">'写文件操作成功'</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><a id="more"></a>
 
 <p>提取有图的json数据</p>
@@ -345,7 +345,7 @@
   </entry>
   <entry>
     <title>复习CSS的笔记</title>
-    <url>/2249038142.github.io/2019/10/15/%E5%A4%8D%E4%B9%A0CSS%E7%9A%84%E7%AC%94%E8%AE%B0/</url>
+    <url>/2019/10/15/%E5%A4%8D%E4%B9%A0CSS%E7%9A%84%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="复习CSS的笔记"><a href="#复习CSS的笔记" class="headerlink" title="复习CSS的笔记"></a>复习CSS的笔记</h1><h3 id="水平垂直居中"><a href="#水平垂直居中" class="headerlink" title="水平垂直居中"></a>水平垂直居中</h3><p><em>html</em></p><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"child"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure><a id="more"></a>
 
 
@@ -515,7 +515,7 @@
   </entry>
   <entry>
     <title>vue.js商城项目（六）登陆</title>
-    <url>/2249038142.github.io/2019/10/10/vue.js%E5%95%86%E5%9F%8E%E9%A1%B9%E7%9B%AE%EF%BC%88%E5%85%AD%EF%BC%89%E7%99%BB%E9%99%86/</url>
+    <url>/2019/10/10/vue.js%E5%95%86%E5%9F%8E%E9%A1%B9%E7%9B%AE%EF%BC%88%E5%85%AD%EF%BC%89%E7%99%BB%E9%99%86/</url>
     <content><![CDATA[<h1 id="vue-js商城项目（六）登陆"><a href="#vue-js商城项目（六）登陆" class="headerlink" title="vue.js商城项目（六）登陆"></a>vue.js商城项目（六）登陆</h1><h3 id="在User-js进行一个比较密码的函数封装"><a href="#在User-js进行一个比较密码的函数封装" class="headerlink" title="在User.js进行一个比较密码的函数封装"></a>在User.js进行一个比较密码的函数封装</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">userSchema.methods = &#123;</span><br><span class="line">        <span class="comment">//密码比对的方法</span></span><br><span class="line">        comparePassword: <span class="function">(<span class="params">_password, password</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">                bcrypt.compare(_password, password, (err, isMatch) =&gt; &#123;</span><br><span class="line">                    <span class="keyword">if</span> (!err) resolve(isMatch)</span><br><span class="line">                    <span class="keyword">else</span> reject(err)</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><a id="more"></a>
 
 <h3 id="进行接口的封装"><a href="#进行接口的封装" class="headerlink" title="进行接口的封装"></a>进行接口的封装</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">router.post(<span class="string">'/login'</span>, <span class="keyword">async</span>(ctx) =&gt; &#123;</span><br><span class="line">    <span class="comment">//得到前端传递过来的数据</span></span><br><span class="line">    <span class="keyword">let</span> loginUser = ctx.request.body</span><br><span class="line">    <span class="built_in">console</span>.log(loginUser)</span><br><span class="line">    <span class="keyword">let</span> userName = loginUser.userName</span><br><span class="line">    <span class="keyword">let</span> password = loginUser.password</span><br><span class="line">        <span class="comment">//引入User的model</span></span><br><span class="line">    <span class="keyword">const</span> User = mongoose.model(<span class="string">'User'</span>)</span><br><span class="line">        <span class="comment">//查找用户名是否存在，如果存在开始比对密码</span></span><br><span class="line">    <span class="keyword">await</span> User.findOne(&#123; <span class="attr">userName</span>: userName &#125;).exec().then(<span class="keyword">async</span>(result) =&gt; &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(result)</span><br><span class="line">        <span class="keyword">if</span> (result) &#123;</span><br><span class="line">            <span class="comment">//console.log(User)</span></span><br><span class="line">            <span class="comment">//当用户名存在时，开始比对密码</span></span><br><span class="line">            <span class="keyword">let</span> newUser = <span class="keyword">new</span> User() <span class="comment">//因为是实例方法，所以要new出对象，才能调用</span></span><br><span class="line">            <span class="keyword">await</span> newUser.comparePassword(password, result.password)</span><br><span class="line">                .then(<span class="function">(<span class="params">isMatch</span>) =&gt;</span> &#123;</span><br><span class="line">                    <span class="comment">//返回比对结果</span></span><br><span class="line">                    ctx.body = &#123; <span class="attr">code</span>: <span class="number">200</span>, <span class="attr">message</span>: isMatch &#125;</span><br><span class="line">                &#125;)</span><br><span class="line">                .catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">                    <span class="comment">//出现异常，返回异常</span></span><br><span class="line">                    <span class="built_in">console</span>.log(error)</span><br><span class="line">                    ctx.body = &#123; <span class="attr">code</span>: <span class="number">500</span>, <span class="attr">message</span>: error &#125;</span><br><span class="line">                &#125;)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            ctx.body = &#123; <span class="attr">code</span>: <span class="number">200</span>, <span class="attr">message</span>: <span class="string">'用户名不存在'</span> &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;).catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(error)</span><br><span class="line">        ctx.body = &#123; <span class="attr">code</span>: <span class="number">500</span>, <span class="attr">message</span>: error &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
@@ -536,7 +536,7 @@
   </entry>
   <entry>
     <title>vue.js商城项目（五）加密</title>
-    <url>/2249038142.github.io/2019/09/25/vue.js%E5%95%86%E5%9F%8E%E9%A1%B9%E7%9B%AE%EF%BC%88%E4%BA%94%EF%BC%89%E5%8A%A0%E5%AF%86/</url>
+    <url>/2019/09/25/vue.js%E5%95%86%E5%9F%8E%E9%A1%B9%E7%9B%AE%EF%BC%88%E4%BA%94%EF%BC%89%E5%8A%A0%E5%AF%86/</url>
     <content><![CDATA[<h1 id="vue-js商城项目（五）加密"><a href="#vue-js商城项目（五）加密" class="headerlink" title="vue.js商城项目（五）加密"></a>vue.js商城项目（五）加密</h1><h3 id="加盐处理"><a href="#加盐处理" class="headerlink" title="加盐处理"></a>加盐处理</h3><p>把原来的密码里，加入一些其他的字符串，并且我们可以自己设置加入字符串的强度</p><h3 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h3><p>我们使用的MD5加密或者hash256加密算法，其实他们都是hash的算法。就是把你的密码进行一次不可逆的编译，这样就算别人得到了这个密码值，也不能进行直接登录操作</p><a id="more"></a>
 
 <h3 id="安装与使用bcrypt"><a href="#安装与使用bcrypt" class="headerlink" title="安装与使用bcrypt"></a>安装与使用bcrypt</h3><p><code>npm i bcryptjs --save</code></p>
@@ -555,7 +555,7 @@
   </entry>
   <entry>
     <title>vue.js商城项目（四）(后台准备)</title>
-    <url>/2249038142.github.io/2019/09/25/vue.js%E5%95%86%E5%9F%8E%E9%A1%B9%E7%9B%AE%EF%BC%88%E5%9B%9B%EF%BC%89/</url>
+    <url>/2019/09/25/vue.js%E5%95%86%E5%9F%8E%E9%A1%B9%E7%9B%AE%EF%BC%88%E5%9B%9B%EF%BC%89/</url>
     <content><![CDATA[<h1 id="vue-js商城项目（四）-后台准备"><a href="#vue-js商城项目（四）-后台准备" class="headerlink" title="vue.js商城项目（四）(后台准备)"></a>vue.js商城项目（四）(后台准备)</h1><blockquote>
 <p>Koa 是一个新的 web 框架，由 Express 幕后的原班人马打造， 致力于成为 web 应用和 API 开发领域中的一个更小、更富有表现力、更健壮的基石。 通过利用 async 函数，Koa 帮你丢弃回调函数，并有力地增强错误处理。 Koa 并没有捆绑任何中间件， 而是提供了一套优雅的方法，帮助您快速而愉快地编写服务端应用程序。</p>
 </blockquote><a id="more"></a>
@@ -579,7 +579,7 @@
   </entry>
   <entry>
     <title>vue.js商城项目（三）</title>
-    <url>/2249038142.github.io/2019/09/22/vue.js%E5%95%86%E5%9F%8E%E9%A1%B9%E7%9B%AE%EF%BC%88%E4%B8%89%EF%BC%89/</url>
+    <url>/2019/09/22/vue.js%E5%95%86%E5%9F%8E%E9%A1%B9%E7%9B%AE%EF%BC%88%E4%B8%89%EF%BC%89/</url>
     <content><![CDATA[<h1 id="vue-js商城项目（三）"><a href="#vue-js商城项目（三）" class="headerlink" title="vue.js商城项目（三）"></a>vue.js商城项目（三）</h1><h3 id="（filter）精度价格"><a href="#（filter）精度价格" class="headerlink" title="（filter）精度价格"></a>（filter）精度价格</h3><blockquote>
 <p>在很多电商项目中，有许多价格标签需要精确到小数点后两位。</p>
 </blockquote><p><strong>创建一个js文件</strong></p><a id="more"></a>
@@ -616,7 +616,7 @@
   </entry>
   <entry>
     <title>vue.js商城项目（二）（楼层导航）</title>
-    <url>/2249038142.github.io/2019/09/19/vue.js%E5%95%86%E5%9F%8E%E9%A1%B9%E7%9B%AE%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+    <url>/2019/09/19/vue.js%E5%95%86%E5%9F%8E%E9%A1%B9%E7%9B%AE%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
     <content><![CDATA[<h1 id="vue-js商城项目（二）（楼层导航）"><a href="#vue-js商城项目（二）（楼层导航）" class="headerlink" title="vue.js商城项目（二）（楼层导航）"></a>vue.js商城项目（二）（楼层导航）</h1><blockquote>
 <p>轮播图在上个笔记讲了，可以用vant内置轮播图组件也可以用swiper组件,组件化形式写一个楼层推荐</p>
 </blockquote><a id="more"></a>
@@ -672,7 +672,7 @@
   </entry>
   <entry>
     <title>swiper组件使用</title>
-    <url>/2249038142.github.io/2019/09/18/swiper%E7%BB%84%E4%BB%B6%E4%BD%BF%E7%94%A8/</url>
+    <url>/2019/09/18/swiper%E7%BB%84%E4%BB%B6%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h1 id="swiper组件使用"><a href="#swiper组件使用" class="headerlink" title="swiper组件使用"></a>swiper组件使用</h1><hr><h3 id="引入-vue-awesome-swiper-的两种方式"><a href="#引入-vue-awesome-swiper-的两种方式" class="headerlink" title="引入 vue-awesome-swiper 的两种方式"></a>引入 vue-awesome-swiper 的两种方式</h3><ul>
 <li>全局引入</li>
 </ul><p>可以直接使用全局引入，引入代码如下：</p><a id="more"></a>
@@ -719,7 +719,7 @@
   </entry>
   <entry>
     <title>vue.js商城项目（一）（前期准备）</title>
-    <url>/2249038142.github.io/2019/09/15/vue.js%E5%95%86%E5%9F%8E%E9%A1%B9%E7%9B%AE%EF%BC%88%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87%EF%BC%89/</url>
+    <url>/2019/09/15/vue.js%E5%95%86%E5%9F%8E%E9%A1%B9%E7%9B%AE%EF%BC%88%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87%EF%BC%89/</url>
     <content><![CDATA[<h1 id="vue-js商城项目（一）（前期准备）"><a href="#vue-js商城项目（一）（前期准备）" class="headerlink" title="vue.js商城项目（一）（前期准备）"></a>vue.js商城项目（一）（前期准备）</h1><blockquote>
 <p>vue 的基础知识也学习完了，跟着视频教程做了几个小demo，想结合之前学过的node，做一个综合性的商城项目</p>
 </blockquote><a id="more"></a>
@@ -764,7 +764,7 @@
   </entry>
   <entry>
     <title>初识KOA（上）</title>
-    <url>/2249038142.github.io/2019/08/07/2019-8-6%20%E5%88%9D%E8%AF%86KOA/</url>
+    <url>/2019/08/07/2019-8-6%20%E5%88%9D%E8%AF%86KOA/</url>
     <content><![CDATA[<h1 id="初识KOA（上）"><a href="#初识KOA（上）" class="headerlink" title="初识KOA（上）"></a>初识KOA（上）</h1><blockquote>
 <p>新一代node框架入门，前置知识：node基础,数据库基础，了解Koa怎么搭建服务器的,不适合通读，<strong>推荐跟文章实际操作</strong>（手把手教学）</p>
 </blockquote><a id="more"></a>
@@ -846,7 +846,7 @@
   </entry>
   <entry>
     <title>初识MongoDB</title>
-    <url>/2249038142.github.io/2019/08/06/MongoDB/</url>
+    <url>/2019/08/06/MongoDB/</url>
     <content><![CDATA[<h1 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h1><ul>
 <li><p>一个数据库对应多个集合</p>
 <ul>
@@ -1005,7 +1005,7 @@
   </entry>
   <entry>
     <title>初识断点调试</title>
-    <url>/2249038142.github.io/2019/07/26/%E5%88%9D%E8%AF%86%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95/</url>
+    <url>/2019/07/26/%E5%88%9D%E8%AF%86%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95/</url>
     <content><![CDATA[<h1 id="初识断点调试"><a href="#初识断点调试" class="headerlink" title="初识断点调试"></a>初识断点调试</h1><blockquote>
 <p>之前用console.log调试，比较麻烦，发现断电调试非常好用</p>
 </blockquote><h3 id="使用VS-Code调试node"><a href="#使用VS-Code调试node" class="headerlink" title="使用VS Code调试node"></a>使用VS Code调试node</h3><ul>
@@ -1031,7 +1031,7 @@
   </entry>
   <entry>
     <title>使用node连接Mysql，简单的注册登陆demo</title>
-    <url>/2249038142.github.io/2019/07/26/%E4%BD%BF%E7%94%A8node%E8%BF%9E%E6%8E%A5Mysql%EF%BC%8C%E7%AE%80%E5%8D%95%E7%9A%84%E6%B3%A8%E5%86%8C%E7%99%BB%E9%99%86demo/</url>
+    <url>/2019/07/26/%E4%BD%BF%E7%94%A8node%E8%BF%9E%E6%8E%A5Mysql%EF%BC%8C%E7%AE%80%E5%8D%95%E7%9A%84%E6%B3%A8%E5%86%8C%E7%99%BB%E9%99%86demo/</url>
     <content><![CDATA[<h1 id="使用node连接Mysql，简单的注册登陆demo"><a href="#使用node连接Mysql，简单的注册登陆demo" class="headerlink" title="使用node连接Mysql，简单的注册登陆demo"></a>使用node连接Mysql，简单的注册登陆demo</h1><blockquote>
 <p>初步使用，学习node过程中小笔记</p>
 </blockquote><h3 id="创建工作区"><a href="#创建工作区" class="headerlink" title="创建工作区"></a>创建工作区</h3><p>使用cnpm 国内淘宝的一个npm镜像，速度更快</p><a id="more"></a>
@@ -1074,7 +1074,7 @@
   </entry>
   <entry>
     <title>毛概课后复习参考答案</title>
-    <url>/2249038142.github.io/2019/07/03/%E6%AF%9B%E6%A6%82%E8%AF%BE%E5%90%8E%E5%A4%8D%E4%B9%A0%E9%A2%98%E5%8F%82%E8%80%83%EF%BC%9A/</url>
+    <url>/2019/07/03/%E6%AF%9B%E6%A6%82%E8%AF%BE%E5%90%8E%E5%A4%8D%E4%B9%A0%E9%A2%98%E5%8F%82%E8%80%83%EF%BC%9A/</url>
     <content><![CDATA[<p>课后复习题参考：</p><p><strong>第一章</strong></p><p>1、毛泽东思想的含义</p><p>毛泽东思想是马克思主义中国化的第一个重大理论成果，是马克思列宁主义在中国的运用和发展，是被实践证明了的关于中国革命和建设的正确的理论原则和经验总结，是中国共产党集体智慧的结晶，是党必须长期坚持的指导思想。</p><a id="more"></a>
 
 
@@ -1236,7 +1236,7 @@
   </entry>
   <entry>
     <title>Java面试题</title>
-    <url>/2249038142.github.io/2019/06/28/Java_qes/</url>
+    <url>/2019/06/28/Java_qes/</url>
     <content><![CDATA[<h5 id="1、什么是Java虚拟机？为什么Java被称作是“平台无关的编程语言”？"><a href="#1、什么是Java虚拟机？为什么Java被称作是“平台无关的编程语言”？" class="headerlink" title="1、什么是Java虚拟机？为什么Java被称作是“平台无关的编程语言”？"></a>1、什么是Java虚拟机？为什么Java被称作是“平台无关的编程语言”？</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Java虚拟机是一个可以执行Java字节码的虚拟机进程。Java源文件被编译成能被Java虚拟机执行的字节码文件。</span><br><span class="line">Java被设计成允许应用程序可以运行在任意的平台，而不需要程序员为每一个平台单独重写或者是重新编译。Java虚拟机让这个变为可能，因为它知道底层硬件平台的指令长度和其他特性。</span><br></pre></td></tr></table></figure><a id="more"></a>
 
 <h5 id="2、JDK和JRE的区别是什么？"><a href="#2、JDK和JRE的区别是什么？" class="headerlink" title="2、JDK和JRE的区别是什么？"></a>2、JDK和JRE的区别是什么？</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Java运行时环境(JRE)。它包括Java虚拟机、Java核心类库和支持文件。它不包含开发工具（JDK）--编译器、调试器和其他工具。</span><br><span class="line"></span><br><span class="line">Java开发工具包(JDK)是完整的Java软件开发包，包含了JRE，编译器和其他的工具(比如：JavaDoc，Java调试器)，可以让开发者开发、编译、执行Java应用程序。</span><br></pre></td></tr></table></figure>
@@ -1524,7 +1524,7 @@
   </entry>
   <entry>
     <title>课程设计结业说明</title>
-    <url>/2249038142.github.io/2019/06/28/%E5%90%B4%E4%BD%B3%E5%AE%B8%E3%80%81%E5%90%B4%E5%A5%87%E5%A5%87%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1%E7%BB%93%E4%B8%9A%E6%8A%A5%E5%91%8A/</url>
+    <url>/2019/06/28/%E5%90%B4%E4%BD%B3%E5%AE%B8%E3%80%81%E5%90%B4%E5%A5%87%E5%A5%87%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1%E7%BB%93%E4%B8%9A%E6%8A%A5%E5%91%8A/</url>
     <content><![CDATA[<h3 id="吴佳宸、吴奇奇课程设计结业报告"><a href="#吴佳宸、吴奇奇课程设计结业报告" class="headerlink" title="吴佳宸、吴奇奇课程设计结业报告"></a>吴佳宸、吴奇奇课程设计结业报告</h3><blockquote>
 <p>在老师的带领下深入学习</p>
 </blockquote><h3 id="数据细节化处理"><a href="#数据细节化处理" class="headerlink" title="数据细节化处理"></a>数据细节化处理</h3><ul>
@@ -1547,7 +1547,7 @@
   </entry>
   <entry>
     <title>爬取豆瓣Top250</title>
-    <url>/2249038142.github.io/2019/06/26/python-%E7%88%AC%E5%8F%96%E8%B1%86%E7%93%A3Top250/</url>
+    <url>/2019/06/26/python-%E7%88%AC%E5%8F%96%E8%B1%86%E7%93%A3Top250/</url>
     <content><![CDATA[<h1 id="爬取豆瓣Top250"><a href="#爬取豆瓣Top250" class="headerlink" title="爬取豆瓣Top250"></a>爬取豆瓣Top250</h1><blockquote>
 <p>语言：python<br>使用库：requests(http请求数据), json(字典与json转换), xlwt(json与excel),lxml(解析xml，xpath)<br>爬取内容：豆瓣电影，图书，音乐Top250</p>
 </blockquote><a id="more"></a>
@@ -1575,7 +1575,7 @@
   </entry>
   <entry>
     <title>python 爬虫练习</title>
-    <url>/2249038142.github.io/2019/06/26/python-%E7%88%AC%E8%99%AB%E7%BB%83%E4%B9%A0/</url>
+    <url>/2019/06/26/python-%E7%88%AC%E8%99%AB%E7%BB%83%E4%B9%A0/</url>
     <content><![CDATA[<h1 id="python-爬虫练习五个小练习"><a href="#python-爬虫练习五个小练习" class="headerlink" title="python 爬虫练习五个小练习"></a>python 爬虫练习五个小练习</h1><h3 id="值得注意的点"><a href="#值得注意的点" class="headerlink" title="值得注意的点"></a>值得注意的点</h3><ul>
 <li><p>使用xpath爬取的是一个list要取list[0]得到字符串</p>
 </li>
@@ -1624,7 +1624,7 @@
   </entry>
   <entry>
     <title>写给学弟学妹的学习小程序经验总结</title>
-    <url>/2249038142.github.io/2019/06/18/%E5%86%99%E7%BB%99%E5%AD%A6%E5%BC%9F%E5%AD%A6%E5%A6%B9%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/</url>
+    <url>/2019/06/18/%E5%86%99%E7%BB%99%E5%AD%A6%E5%BC%9F%E5%AD%A6%E5%A6%B9%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h1 id="写给学弟学妹的学习小程序经验总结"><a href="#写给学弟学妹的学习小程序经验总结" class="headerlink" title="写给学弟学妹的学习小程序经验总结"></a>写给学弟学妹的学习小程序经验总结</h1><blockquote>
 <p>此篇文章面向前端入门以及小程序新手，入门爬坑可以观看</p>
 </blockquote><p>我个人跟着教程写过一个电影小程序，然后就直接开始写比赛的小程序了，对小程序有一定认识，但理解还是比较浅的，如有错误欢迎批评指正。</p><a id="more"></a>
@@ -1718,7 +1718,7 @@
   </entry>
   <entry>
     <title>python 课程设计 Day1</title>
-    <url>/2249038142.github.io/2019/06/17/python%20%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1%20Day1/</url>
+    <url>/2019/06/17/python%20%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1%20Day1/</url>
     <content><![CDATA[<h1 id="python-课程设计-Day1"><a href="#python-课程设计-Day1" class="headerlink" title="python 课程设计 Day1"></a>python 课程设计 Day1</h1><blockquote>
 <p>大一的时候自学过Python，在慕课上看过两个课程，跟着课程写过个豆瓣爬虫，到现在都忘得差不多了，正好课程设计复习一下，还可以了解一下Django后台框架👍</p>
 </blockquote><a id="more"></a>
@@ -1758,7 +1758,7 @@
   </entry>
   <entry>
     <title>小程序 '冥想歇息' 介绍文档</title>
-    <url>/2249038142.github.io/2019/06/17/%E5%B0%8F%E7%A8%8B%E5%BA%8F%20&#39;%E5%86%A5%E6%83%B3%E6%AD%87%E6%81%AF&#39;%20%E4%BB%8B%E7%BB%8D%E6%96%87%E6%A1%A3%20/</url>
+    <url>/2019/06/17/%E5%B0%8F%E7%A8%8B%E5%BA%8F%20&#39;%E5%86%A5%E6%83%B3%E6%AD%87%E6%81%AF&#39;%20%E4%BB%8B%E7%BB%8D%E6%96%87%E6%A1%A3%20/</url>
     <content><![CDATA[<h1 id="小程序-‘冥想歇息’-介绍文档"><a href="#小程序-‘冥想歇息’-介绍文档" class="headerlink" title="小程序 ‘冥想歇息’ 介绍文档"></a>小程序 ‘冥想歇息’ 介绍文档</h1><p>—宸薇敏团队</p><p>简介：本程序想推广，用短暂休息和冥想来补充精神和提升学习工作效率。</p><h3 id="1-产品定位"><a href="#1-产品定位" class="headerlink" title="1.产品定位"></a>1.产品定位</h3><p>​    <strong>（1）需求分析</strong></p><a id="more"></a>
 
 
