@@ -1,6 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>服务器部署node新手教程（二）</title>
+    <url>/2249038142.github.io/2019/10/31/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2node%E6%95%99%E7%A8%8B%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+    <content><![CDATA[<h1 id="服务器部署node教程（二）"><a href="#服务器部署node教程（二）" class="headerlink" title="服务器部署node教程（二）"></a>服务器部署node教程（二）</h1><blockquote>
+<p> 期间经历了很多坑，多数还是找到了解决办法，相信经历了第一次，以后就能孰能生巧了。</p>
+</blockquote><h3 id="安装最新的node-js环境"><a href="#安装最新的node-js环境" class="headerlink" title="安装最新的node.js环境"></a>安装最新的node.js环境</h3><a id="more"></a>
+<p><code>ssh 用户名</code></p>
+<p><code>yum update -y</code>更新</p>
+<p><code>yum install -y nodejs</code>安装nodejs</p>
+<p>查看结果无误，不过版本太低低 删掉 rm</p>
+<p><img src="https://github.com/2249038142/picture/raw/master/nodeToService/1572102034266.png" alt="1572102034266"></p>
+<p><strong>去官网下</strong></p>
+<p><code>https://nodejs.org/dist/</code></p>
+<p>我下载的最新13版本</p>
+<p><code>wget https://nodejs.org/dist/v13.0.1//node-v13.0.1-linux-x64.tar.xz</code></p>
+<p>解压</p>
+<p><code>tar -xvJf node-v13.0.1-linux-x64.tar.xz</code></p>
+<p>利用软链接放到环境变量 必须用绝对路径 ，路径自己ls查看</p>
+<p><img src="https://github.com/2249038142/picture/raw/master/nodeToService/1572105757441.png" alt="1572105757441"></p>
+<p>成功🤞</p>
+<h3 id="通过VsCode-ftp-连接接服务器"><a href="#通过VsCode-ftp-连接接服务器" class="headerlink" title="通过VsCode ftp 连接接服务器"></a>通过VsCode ftp 连接接服务器</h3><p>vscode安装插件<code>sftp</code></p>
+<p><code>ctrl+shift+p</code>搜索<code>sftp:Config</code></p>
+<p><img src="https://github.com/2249038142/picture/raw/master/nodeToService/1572106834768.png" alt="1572106834768"></p>
+<p>配置config，用法字面意思能看懂，更复杂配置搜文档</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"name"</span>: <span class="string">"Jason"</span>,</span><br><span class="line">    <span class="attr">"host"</span>: <span class="string">"47.103.209.82"</span>,</span><br><span class="line">    <span class="attr">"protocol"</span>: <span class="string">"sftp"</span>,</span><br><span class="line">    <span class="attr">"port"</span>: <span class="number">22</span>,</span><br><span class="line">    <span class="attr">"username"</span>: <span class="string">"root"</span>,</span><br><span class="line">    <span class="attr">"remotePath"</span>: <span class="string">"/home/frontend"</span>,</span><br><span class="line">    <span class="attr">"uploadOnSave"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"ignore"</span>: [</span><br><span class="line">        <span class="string">".vscode"</span>,</span><br><span class="line">        <span class="string">".git"</span>,</span><br><span class="line">        <span class="string">".DS_Store"</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">"syncOption"</span>: &#123;</span><br><span class="line">        <span class="attr">"delete"</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">"update"</span>: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"watcher"</span>: &#123;</span><br><span class="line">        <span class="attr">"files"</span>: <span class="string">"**/*"</span>,</span><br><span class="line">        <span class="attr">"autoUpload"</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">"autoDelete"</span>: <span class="literal">false</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"privateKeyPath"</span>: <span class="string">"~/.ssh/id_rsa"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://github.com/2249038142/picture/raw/master/nodeToService/1572145404172.png" alt="1572145404172"></p>
+<p>右键可以拉取推送到服务器</p>
+<h3 id="配置nginx-反向代理"><a href="#配置nginx-反向代理" class="headerlink" title="配置nginx 反向代理"></a>配置nginx 反向代理</h3><p>安装<code>yum install -y nginx</code></p>
+<p>配置nginx.conf，监听服务器本地的5000端口，详细配置请看nginx文档</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># For more information on configuration, see:</span><br><span class="line">#   * Official English Documentation: http://nginx.org/en/docs/</span><br><span class="line">#   * Official Russian Documentation: http://nginx.org/ru/docs/</span><br><span class="line"></span><br><span class="line">user nginx;</span><br><span class="line">worker_processes auto;</span><br><span class="line">error_log /var/log/nginx/error.log;</span><br><span class="line">pid /run/nginx.pid;</span><br><span class="line"></span><br><span class="line"># Load dynamic modules. See /usr/share/nginx/README.dynamic.</span><br><span class="line">include /usr/share/nginx/modules/*.conf;</span><br><span class="line"></span><br><span class="line">events &#123;</span><br><span class="line">    worker_connections 1024;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    log_format  main  &apos;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &apos;</span><br><span class="line">                      &apos;$status $body_bytes_sent &quot;$http_referer&quot; &apos;</span><br><span class="line">                      &apos;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&apos;;</span><br><span class="line"></span><br><span class="line">    access_log  /var/log/nginx/access.log  main;</span><br><span class="line"></span><br><span class="line">    sendfile            on;</span><br><span class="line">    tcp_nopush          on;</span><br><span class="line">    tcp_nodelay         on;</span><br><span class="line">    keepalive_timeout   65;</span><br><span class="line">    types_hash_max_size 2048;</span><br><span class="line"></span><br><span class="line">    include             /etc/nginx/mime.types;</span><br><span class="line">    default_type        application/octet-stream;</span><br><span class="line"></span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        listen       80 default_server;</span><br><span class="line">        server_name  localhost;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">            proxy_pass http://127.0.0.1:3000;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        error_page 404 /404.html;</span><br><span class="line">            location = /40x.html &#123;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        error_page 500 502 503 504 /50x.html;</span><br><span class="line">            location = /50x.html &#123;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>推入服务器，修改为可执行权限</p>
+<p><img src="https://github.com/2249038142/picture/raw/master/nodeToService/1572154533239.png" alt="1572154533239"></p>
+<p>覆盖掉原来的nginx配置文件</p>
+<p><code># cp nginx.conf /etc/nginx/nginx.conf</code></p>
+<p>重启nginx</p>
+<p><code># systemctl restart nginx</code></p>
+<p>浏览器输入ip，返回nginx error说明已经配上了</p>
+<p><img src="https://github.com/2249038142/picture/raw/master/nodeToService/1572154823450.png" alt="1572154823450"></p>
+<p>在服务器安装个express</p>
+<p><code>npm install express -S</code></p>
+<p>测试一下</p>
+<p>趴到本地，建一个index.js测试文件</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 处理静态文件</span></span><br><span class="line">app.use(express.static(<span class="string">'client/dist'</span>));</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'/'</span>, (req, res) =&gt; &#123;</span><br><span class="line">    res.sendFile(path.resolve(__dirname, <span class="string">'client'</span>, <span class="string">'dist'</span>, <span class="string">'index.html'</span>));</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'/api/datas'</span>, (req, res) =&gt; &#123;</span><br><span class="line">    res.json(&#123;</span><br><span class="line">        name: <span class="string">'Jason'</span>,</span><br><span class="line">        wechat: <span class="string">'wjcyx99'</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> port = <span class="number">5000</span>;</span><br><span class="line"></span><br><span class="line">app.listen(port, () =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`Server running on port <span class="subst">$&#123;port&#125;</span>`</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>推到服务器，运行 <code>node index.js</code><img src="https://github.com/2249038142/picture/raw/master/nodeToService/1572156101543.png" alt="1572156101543"></p>
+<p>浏览器查看结果，成功👍</p>
+<p><img src="https://github.com/2249038142/picture/raw/master/nodeToService/1572156042839.png" alt="1572156042839"></p>
+<h3 id="创建全局模块软链接"><a href="#创建全局模块软链接" class="headerlink" title="创建全局模块软链接"></a>创建全局模块软链接</h3><p>刚刚 <code>cnpm  install -g @vue/cli</code>安装个vue脚手架</p>
+<p>找到vue 在这里</p>
+<p><img src="https://github.com/2249038142/picture/raw/master/nodeToService/1572157762872.png" alt="1572157762872"></p>
+<p>放到全局，有效果</p>
+<p><img src="https://github.com/2249038142/picture/raw/master/nodeToService/1572157803313.png" alt="1572157803313"></p>
+<p>使用forever 后台运行</p>
+<p><a href="https://github.com/foreversd/forever" target="_blank" rel="noopener">https://github.com/foreversd/forever</a></p>
+<p><code>npm install forever -g</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ forever start app.js          #启动</span><br><span class="line">$ forever stop app.js           #关闭</span><br></pre></td></tr></table></figure>
+
+<h3 id="打包上线"><a href="#打包上线" class="headerlink" title="打包上线"></a>打包上线</h3><p>实验做得差不多了，给我的CityMALL打包上线</p>
+<h3 id="linux下安装mongodb"><a href="#linux下安装mongodb" class="headerlink" title="linux下安装mongodb"></a>linux下安装mongodb</h3><ol>
+<li>在官方下找到下载路径,CentOS红帽子公司的</li>
+</ol>
+<p><img src="https://github.com/2249038142/picture/raw/master/nodeToService/1572253297039.png" alt="1572253297039"></p>
+<p><code>wget 路径</code></p>
+<ol start="2">
+<li>下载完后解压到这个目录，没有创建</li>
+</ol>
+<p><code>tar -zxvf mongodb-linux-x86_64-rhel70-4.2.1.tgz -C /usr/local/mongoDB/</code></p>
+<p>名字太长了，改个名<code># mv mongodb-linux-x86_64-rhel70-4.2.1 mongodbserver</code></p>
+<ol start="3">
+<li><p>创建data数据，log日志，etc配置 文件夹</p>
+<p>创建配置文件mongodb.conf</p>
+</li>
+</ol>
+<p><code>cd /usr/local/mongoDB/mongodbserver/etc</code></p>
+<p><code>vim mongodb.conf</code></p>
+<blockquote>
+<p> 从mongodb3.2开始默认的存储引擎是WiredTiger，3.3版本之前的默认存储引擎是MMAPv1，mongodb4.x版本不再支持MMAPv1存储引擎。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dbpath=/usr/local/mongoDB/mongodbserver/data/db #数据存放</span><br><span class="line">logpath=/usr/local/mongoDB/mongodbserver/data/logs/mongodb.log #日志存放</span><br><span class="line">port=27017 #端口</span><br><span class="line">logappend=true #追加方式写日志  </span><br><span class="line">noauth=true #不启用验证  </span><br><span class="line">fork=true #可在后台运行</span><br><span class="line">journal=true #每次写入会记录一条操作</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><strong>添加环境变量</strong></li>
+</ol>
+<ul>
+<li>在/etc/profile文件中，文末添加 export  <code>vim /etc profile</code></li>
+</ul>
+<p><code>export PATH=$PATH:/usr/local/mongoDB/mongodbserver/bin</code></p>
+<p>执行``source /etc/profile`，使系统环境变量立即生效</p>
+<ul>
+<li>将mongo路径软链到/usr/bin路径下，方便随处执行mongo命令</li>
+</ul>
+<p>执行命令: <code>ln -s /usr/local/mongoDB/mongodbserver/bin/mongo  /usr/bin/mongo</code></p>
+<p>通过配置文件运行，mongod</p>
+<p><code># mongod --config /usr/local/mongoDB/mongodbserver/etc/mongodb.conf</code></p>
+<p>运行mongo成功👍</p>
+<p><img src="https://github.com/2249038142/picture/raw/master/nodeToService/1572262020655.png" alt="1572262020655"></p>
+<p>到database 初始化mongoDB创建schema</p>
+<p><img src="https://github.com/2249038142/picture/raw/master/nodeToService/1572442011030.png" alt="1572442011030"></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>)</span><br><span class="line"><span class="keyword">const</span> db = <span class="string">"mongodb://localhost/shoppingMall"</span></span><br><span class="line"><span class="keyword">const</span> glob = <span class="built_in">require</span>(<span class="string">'glob'</span>)</span><br><span class="line"><span class="keyword">const</span> &#123; resolve &#125; = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"></span><br><span class="line">exports.initSchemas = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    glob.sync(resolve(__dirname, <span class="string">'./schema'</span>, <span class="string">'**/*.js'</span>)).forEach(<span class="built_in">require</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="数据库导入，修正"><a href="#数据库导入，修正" class="headerlink" title="数据库导入，修正"></a>数据库导入，修正</h3><p>之前写了api，直接在浏览器中输入，执行命令</p>
+<p>之前的白酒分类是错的把它修正</p>
+<p><img src="https://github.com/2249038142/picture/raw/master/nodeToService/1572488999983.png" alt="1572488999983"></p>
+<h3 id="老是出现node-modules错误"><a href="#老是出现node-modules错误" class="headerlink" title="老是出现node_modules错误"></a>老是出现node_modules错误</h3><p>windows<code>cnpm install rimraf -g</code></p>
+<p><code>rm -f /node_modules</code></p>
+<p>linux <code>rm -rf node_modules</code></p>
+<p>一般都是把node_modules删除重新下载<code>cnpm install</code>，有些还不能删除强行移动文件夹就行了</p>
+<h3 id="不挂断在后台运行"><a href="#不挂断在后台运行" class="headerlink" title="不挂断在后台运行"></a>不挂断在后台运行</h3><ol>
+<li><p>nohup<br> nohup 是 no hang up 的缩写，就是不挂断的意思。nohup 命令运行由 Command参数和任何相关的 Arg参数指定的命令，忽略所有挂断（SIGHUP）信号。</p>
+</li>
+<li><p>&amp;</p>
+<p> &amp;是指在后台运行，但当用户推出(挂起)的时候，命令自动也跟着退出。</p>
+</li>
+</ol>
+<p>使用命令  nohup COMMAND &amp;  这样就能使命令永久的执行下去，关闭终端窗口、Ctrl+c 、断开SSH连接都不会影响其运行，并且可以使用标准输入，终端能够接收任何输入，重定向标准输出和标准错误到当前目录下的nohup.out文件。</p>
+<h3 id="前台打包成静态文件"><a href="#前台打包成静态文件" class="headerlink" title="前台打包成静态文件"></a>前台打包成静态文件</h3><p>​    <code>npm run build</code> 生成dist文件夹放入service，直接就可以使用了</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"><span class="keyword">const</span> staticFiles = <span class="built_in">require</span>(<span class="string">'koa-static'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 指定 dist目录为静态资源目录，用来存放 js css images 等</span></span><br><span class="line">app.use(staticFiles(path.resolve(__dirname, <span class="string">"./dist"</span>)))</span><br></pre></td></tr></table></figure>
+
+<p>在手机测试成功后心情豁然开朗😎</p>
+<p><img src="https://github.com/2249038142/picture/raw/master/nodeToService/1572520037662.png" alt="1572520037662"></p>
+]]></content>
+      <categories>
+        <category>服务器部署</category>
+      </categories>
+      <tags>
+        <tag>项目</tag>
+        <tag>部署</tag>
+        <tag>服务器</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>阿里云部署新手教程（一）（购买服务器，免密登陆）</title>
     <url>/2249038142.github.io/2019/10/25/%E9%98%BF%E9%87%8C%E4%BA%91%E9%83%A8%E7%BD%B2%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89/</url>
     <content><![CDATA[<h1 id="阿里云部署项目新手教程（一）"><a href="#阿里云部署项目新手教程（一）" class="headerlink" title="阿里云部署项目新手教程（一）"></a>阿里云部署项目新手教程（一）</h1><h2 id="（购买服务器，免密登陆）"><a href="#（购买服务器，免密登陆）" class="headerlink" title="（购买服务器，免密登陆）"></a>（购买服务器，免密登陆）</h2><h3 id="购买服务器"><a href="#购买服务器" class="headerlink" title="购买服务器"></a>购买服务器</h3><p>阿里云有学生优惠10元一个月，我选择的是轻量应用服务器，有ssd内存，更高的带宽，但是限量1000G应该够用。选择系统镜像CentOS操作系统。</p><a id="more"></a>
@@ -178,29 +310,6 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;van-checkbox</span><br><span class="line">  class=&quot;card-goods__item&quot;</span><br><span class="line">  v-for=&quot;(item,index) in cartInfo&quot;</span><br><span class="line">  :key=&quot;index&quot;</span><br><span class="line">  :name=&quot;item.goodsId&quot;</span><br><span class="line">  v-model=&quot;checked&quot;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 
 <p>在vant组件中，<code>：name</code>属性中的值会存入<code>data()  checkedGoods: [], //是否选中的物品</code></p>
-]]></content>
-      <categories>
-        <category>vue</category>
-      </categories>
-      <tags>
-        <tag>vue</tag>
-        <tag>前端</tag>
-        <tag>项目</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vue.js商城项目（七）</title>
-    <url>/2249038142.github.io/2019/10/17/vue.js%E5%95%86%E5%9F%8E%E9%A1%B9%E7%9B%AE%EF%BC%88%E5%85%AD%EF%BC%89/</url>
-    <content><![CDATA[<h1 id="vue-js商城项目（七）"><a href="#vue-js商城项目（七）" class="headerlink" title="vue.js商城项目（七）"></a>vue.js商城项目（七）</h1><h3 id="数据提纯"><a href="#数据提纯" class="headerlink" title="数据提纯"></a>数据提纯</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">fs.readFile(<span class="string">'./goods.json'</span>, <span class="string">'utf8'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> newData = <span class="built_in">JSON</span>.parse(data)</span><br><span class="line">    <span class="keyword">let</span> i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">let</span> pushData = []</span><br><span class="line">    newData.RECORDS.map(<span class="function"><span class="keyword">function</span>(<span class="params">value, index</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (value.IMAGE1 != <span class="literal">null</span>) &#123;</span><br><span class="line">            i++</span><br><span class="line">            <span class="built_in">console</span>.log(value.NAME)</span><br><span class="line">            pushData.push(value)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    fs.writeFile(<span class="string">'./newGoods.json'</span>, <span class="built_in">JSON</span>.stringify(pushData), <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (err) <span class="built_in">console</span>.log(<span class="string">'写文件操作失败'</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">console</span>.log(<span class="string">'写文件操作成功'</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><a id="more"></a>
-
-<p>提取有图的json数据</p>
-<h3 id="存入mongoose"><a href="#存入mongoose" class="headerlink" title="存入mongoose"></a>存入mongoose</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">fs.readFile(<span class="string">'./newGoods.json'</span>, <span class="string">'utf8'</span>, (err, data) =&gt; &#123;</span><br><span class="line">        data = <span class="built_in">JSON</span>.parse(data)</span><br><span class="line">        <span class="keyword">let</span> saveCount = <span class="number">0</span></span><br><span class="line">        <span class="keyword">const</span> Goods = mongoose.model(<span class="string">'Goods'</span>)</span><br><span class="line">        data.map(<span class="function">(<span class="params">value, index</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="comment">//console.log(value)</span></span><br><span class="line">            <span class="keyword">let</span> newGoods = <span class="keyword">new</span> Goods(value)</span><br><span class="line">            newGoods.save().then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                saveCount++</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'成功'</span> + saveCount)</span><br><span class="line">            &#125;).catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'失败：'</span> + error)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;)</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://github.com/2249038142/picture/raw/master/vue_shopping/1570762124307.png" alt="1570762124307"></p>
-<h3 id="双栏列表"><a href="#双栏列表" class="headerlink" title="双栏列表"></a>双栏列表</h3><p><img src="https://github.com/2249038142/picture/raw/master/vue_shopping/1571132512573.png" alt="1571132512573"></p>
-<p>前端axios请求后台，后台查询数据库</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">  getCategory() &#123;</span><br><span class="line">    axios(&#123;</span><br><span class="line">      url: url.getCategoryList,</span><br><span class="line">      method: <span class="string">'get'</span>,</span><br><span class="line">    &#125;)</span><br><span class="line">      .then(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">//console.log(response)</span></span><br><span class="line">        <span class="keyword">if</span> (response.data.code == <span class="number">200</span> &amp;&amp; response.data.message) &#123;</span><br><span class="line">          <span class="keyword">this</span>.category = response.data.message</span><br><span class="line">          <span class="comment">//console.log(this.category)</span></span><br><span class="line">          <span class="keyword">this</span>.getCategorySubByCategoryId(<span class="keyword">this</span>.category[<span class="number">0</span>].ID)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          Toast(<span class="string">'服务器错误，数据取得失败'</span>)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">      .catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(error)</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line">  clickCategory(index, categoryId) &#123;</span><br><span class="line">    <span class="keyword">this</span>.categoryIndex = index</span><br><span class="line">    <span class="keyword">this</span>.page = <span class="number">1</span></span><br><span class="line">    <span class="keyword">this</span>.finished = <span class="literal">false</span></span><br><span class="line">    <span class="keyword">this</span>.goodList = []</span><br><span class="line">    <span class="keyword">this</span>.getCategorySubByCategoryId(categoryId)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">//根据大类ID读取小类类别列表</span></span><br><span class="line">  getCategorySubByCategoryId(categoryId) &#123;</span><br><span class="line"></span><br><span class="line">    axios(&#123;</span><br><span class="line">      url: url.getCategorySubList,</span><br><span class="line">      method: <span class="string">'post'</span>,</span><br><span class="line">      data: &#123; <span class="attr">categoryId</span>: categoryId &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">      .then(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">//console.log(response)</span></span><br><span class="line">        <span class="keyword">if</span> (response.data.code == <span class="number">200</span> &amp;&amp; response.data.message) &#123;</span><br><span class="line">          <span class="keyword">this</span>.categorySub = response.data.message</span><br><span class="line">          <span class="keyword">this</span>.active = <span class="number">0</span></span><br><span class="line">          <span class="keyword">this</span>.categorySubId = <span class="keyword">this</span>.categorySub[<span class="number">0</span>].ID</span><br><span class="line">          <span class="keyword">this</span>.onLoad()</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          Toast(<span class="string">'服务器错误，数据取得失败'</span>)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">      .catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(error)</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line">  onLoad() &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">this</span>.categorySubId = <span class="keyword">this</span>.categorySubId?<span class="keyword">this</span>.categorySubId:<span class="keyword">this</span>.categorySub[<span class="number">0</span>].ID</span><br><span class="line">      <span class="keyword">this</span>.getGoodList()</span><br><span class="line">    &#125;, <span class="number">500</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  onRefresh() &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">this</span>.isRefresh = <span class="literal">false</span></span><br><span class="line">      <span class="keyword">this</span>.finished = <span class="literal">false</span></span><br><span class="line">      <span class="keyword">this</span>.goodList=[]</span><br><span class="line">      <span class="keyword">this</span>.page=<span class="number">1</span></span><br><span class="line">      <span class="keyword">this</span>.onLoad()</span><br><span class="line">    &#125;, <span class="number">500</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 获取商品列表</span></span><br><span class="line">  getGoodList() &#123;</span><br><span class="line">    axios(&#123;</span><br><span class="line">      url: url.getGoodsListByCategorySubID,</span><br><span class="line">      method: <span class="string">'post'</span>,</span><br><span class="line">      data: &#123;</span><br><span class="line">        categorySubId: <span class="keyword">this</span>.categorySubId,</span><br><span class="line">        page: <span class="keyword">this</span>.page</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">      .then(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(response)</span><br><span class="line">        <span class="keyword">if</span> (response.data.code == <span class="number">200</span> &amp;&amp; response.data.message.length) &#123;</span><br><span class="line">          <span class="keyword">this</span>.page++</span><br><span class="line">          <span class="keyword">this</span>.goodList = <span class="keyword">this</span>.goodList.concat(response.data.message)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="keyword">this</span>.finished = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.loading = <span class="literal">false</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.finished)</span><br><span class="line">      &#125;)</span><br><span class="line">      .catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(error)</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">//点击子类获取商品信息</span></span><br><span class="line">  onClickCategorySub(index, title) &#123;</span><br><span class="line">    <span class="comment">//console.log( this.categorySub)</span></span><br><span class="line">    <span class="keyword">this</span>.categorySubId = <span class="keyword">this</span>.categorySub[index].ID</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.categorySubId)</span><br><span class="line">    <span class="keyword">this</span>.goodList = []</span><br><span class="line">    <span class="keyword">this</span>.finished = <span class="literal">false</span></span><br><span class="line">    <span class="keyword">this</span>.page = <span class="number">1</span></span><br><span class="line">    <span class="keyword">this</span>.onLoad()</span><br><span class="line"></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <categories>
         <category>vue</category>
