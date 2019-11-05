@@ -1246,7 +1246,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #540e47;
+  background: #3e70ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1397,16 +1397,16 @@ pre .javascript .function {
   padding-left: 0;
 }
 .post-toc ol a {
-  border-bottom-color: #ccc;
-  color: #666;
+  border-bottom: none;
+  color: #0593d3;
   transition-property: all;
   transition-delay: 0s;
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
 }
 .post-toc ol a:hover {
-  border-bottom-color: #000;
-  color: #000;
+  border-bottom: none;
+  color: #fc6423;
 }
 .post-toc .nav-item {
   line-height: 1.8;

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-04T11:49:47.391Z</updated>
+  <updated>2019-11-05T13:11:20.772Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,17 +17,27 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="http://yoursite.com/2019/11/04/Untitled/"/>
-    <id>http://yoursite.com/2019/11/04/Untitled/</id>
-    <published>2019-11-04T11:49:47.391Z</published>
-    <updated>2019-11-04T11:49:47.391Z</updated>
+    <title>深信服研发前端岗位实习面经</title>
+    <link href="http://yoursite.com/2019/11/05/%E6%B7%B1%E4%BF%A1%E6%9C%8D%E7%A0%94%E5%8F%91%E5%89%8D%E7%AB%AF%E5%B2%97%E4%BD%8D%E5%AE%9E%E4%B9%A0%E9%9D%A2%E7%BB%8F/"/>
+    <id>http://yoursite.com/2019/11/05/深信服研发前端岗位实习面经/</id>
+    <published>2019-11-05T13:11:20.771Z</published>
+    <updated>2019-11-05T13:11:20.772Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="深信服研发前端岗位实习面经"><a href="#深信服研发前端岗位实习面经" class="headerlink" title="深信服研发前端岗位实习面经"></a>深信服研发前端岗位实习面经</h1><h3 id="前两轮两轮技术面"><a href="#前两轮两轮技术面" class="headerlink" title="前两轮两轮技术面"></a>前两轮两轮技术面</h3><p>前端也学了有一年了，感觉学得差不多了，就去招聘网站看看岗位要求，</p><blockquote><p>长沙知名互联网公司基本没有😭 昨天逛实习僧，看到长沙有深信服的前端岗位又是招21届的又是vue技术栈 想试试水，投一个。</p></blockquote><a id="more"></a><p>中间没有录音，凭记忆就这些了，下次一定要准备好复盘</p><h4 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h4><p><strong>说说项目的亮点，难点</strong>，两次面试都说到了项目，第一次说了购物车模块实现，路由keep-alive生命周期什么的，第二次说的使用async await去失效的图片</p><h4 id="css"><a href="#css" class="headerlink" title="css"></a>css</h4><ul><li>position relative absolute float</li><li>css的定位</li></ul><h4 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h4><ul><li>怎么判断数组数据类型tinstanceof、Object.prototype.toString.call()等</li><li>原生ajax讲代码，请求过程 </li><li>怎么原生实现同步ajax</li><li>setTimeout 执行顺序</li><li>异步同步，事件机制</li><li>宏任务与微任务</li><li>说一下get post区别</li><li>dom事件流 冒泡 捕获</li><li>事件代理</li><li>call apply区别</li><li>“==”和“===”的区别</li><li>for of 和for in区别</li></ul><h4 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h4><ul><li>讲讲es6学了什么，</li><li>我说了let const 变量提升</li><li>promise async await</li><li>他叫 我说一下 set 和map</li></ul><h3 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h3><ul><li>vue生命周期</li><li>vue router</li><li>组件怎么传参数 父子props emit 同组件 bus</li><li>vuex</li><li>说一下vue与react的区别</li></ul><h4 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h4><ul><li>说一下Webpack基本概念与配置</li><li>loader与plugin原理与实现 ，这个不太了解，我说一般使用vue-cli自动打包plugin按需加载</li></ul><h3 id="hr面试"><a href="#hr面试" class="headerlink" title="hr面试"></a>hr面试</h3><ul><li>自我介绍</li><li>说一说你平时怎么学习，</li><li>公司项目跟自己写项目区别，</li><li>说一说你看过什么书 ，</li><li>说一说你遇到的最大的困难，</li><li>还有什么问的吗，问他新人培训机制 是怎样的</li></ul><hr><p><strong>没想到一次试水面试，三轮面试就这样过了，上午面试第一个电话还在健身房洗澡，没接，打过去裤子都没穿，边穿衣服边面试，面完没想到说我还行😇</strong></p>]]></content>
     
     <summary type="html">
+    
+      &lt;h1 id=&quot;深信服研发前端岗位实习面经&quot;&gt;&lt;a href=&quot;#深信服研发前端岗位实习面经&quot; class=&quot;headerlink&quot; title=&quot;深信服研发前端岗位实习面经&quot;&gt;&lt;/a&gt;深信服研发前端岗位实习面经&lt;/h1&gt;&lt;h3 id=&quot;前两轮两轮技术面&quot;&gt;&lt;a href=&quot;#前两轮两轮技术面&quot; class=&quot;headerlink&quot; title=&quot;前两轮两轮技术面&quot;&gt;&lt;/a&gt;前两轮两轮技术面&lt;/h3&gt;&lt;p&gt;前端也学了有一年了，感觉学得差不多了，就去招聘网站看看岗位要求，&lt;/p&gt;&lt;blockquote&gt;
+&lt;p&gt;长沙知名互联网公司基本没有😭 昨天逛实习僧，看到长沙有深信服的前端岗位又是招21届的又是vue技术栈 想试试水，投一个。&lt;/p&gt;
+&lt;/blockquote&gt;
     
     </summary>
     
     
+      <category term="实习" scheme="http://yoursite.com/categories/%E5%AE%9E%E4%B9%A0/"/>
+    
+    
+      <category term="实习" scheme="http://yoursite.com/tags/%E5%AE%9E%E4%B9%A0/"/>
     
   </entry>
   
