@@ -3489,7 +3489,8 @@
   <entry>
     <title>前端阶段性知识点总结</title>
     <url>/2020/04/26/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h1 id="前端阶段性知识点总结"><a href="#前端阶段性知识点总结" class="headerlink" title="前端阶段性知识点总结"></a>前端阶段性知识点总结</h1><p><strong>总的来说一般 初试考察前端知识覆盖的广度，复试根据项目或者知识点，考察对知识的理解程度、深度。</strong></p>
+    <content><![CDATA[<h1 id="前端阶段性知识点总结"><a href="#前端阶段性知识点总结" class="headerlink" title="前端阶段性知识点总结"></a>前端阶段性知识点总结</h1><p>2020年4月的一个阶段性总结，内容已脱敏</p>
+<p><strong>总的来说一般 初试考察前端知识覆盖的广度，复试根据项目或者知识点，考察对知识的理解程度、深度。</strong></p>
 <hr>
 <p>轮数太多，有些重复，写起来比较乱，就按知识点划分来说题目把，时间长脑子也记不住了，都是被问到的实际问题</p>
 <h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><ul>
@@ -3747,9 +3748,7 @@
 <li>代码规范</li>
 <li>对未来三年自己的一个技术规划（不要说工程化啥的成熟的技术，说一些探索的技术）</li>
 <li>说一个你觉得优秀的产品</li>
-<li>用户量很大，他担心我的代码质量（从实习期的代码规范checklist，说到自己有坚持做的算法逻辑）</li>
-</ul>
-<h3 id="HR四面"><a href="#HR四面" class="headerlink" title="HR四面"></a>HR四面</h3><ul>
+<li>用户量很大，他担心我的代码质量（从实习期的代码规范checklist，说到自己有坚持做的算法逻辑）<h3 id="HR四面"><a href="#HR四面" class="headerlink" title="HR四面"></a>HR四面</h3></li>
 <li>自我介绍（给hr做介绍的话，学习经历努力过程，等非技术相关的，偶尔带两个技术名词，不要一个劲说技术细节）</li>
 <li>说说你的社区商城的项目驱动</li>
 <li>说说你的实习过程中的收获</li>
@@ -5342,5 +5341,40 @@
         <tag>javascript</tag>
         <tag>css</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>GraphQL素材中台的上传</title>
+    <url>/2021/04/28/2021-4-28%20%E7%B4%A0%E6%9D%90%E4%B8%AD%E5%8F%B0%E7%9A%84%E4%B8%8A%E4%BC%A0%20235527/</url>
+    <content><![CDATA[<h1 id="GraphQL素材中台的上传"><a href="#GraphQL素材中台的上传" class="headerlink" title="GraphQL素材中台的上传"></a>GraphQL素材中台的上传</h1><p>主要代码在外网还未脱敏，暂时不展示</p>
+<p>同时基于material这个集合的增删改查都有demo</p>
+<p>技术：nest+graphql+mongoose</p>
+<p>使用nest代码优先方法，定义typescript classes，他会自动生成schema</p>
+<h3 id="定义mongo模型"><a href="#定义mongo模型" class="headerlink" title="定义mongo模型"></a>定义mongo模型</h3><h4 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h4><p>这里新创建了一个本地的数据库middle</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// app.module.ts</span></span><br><span class="line">@Module(&#123;</span><br><span class="line">  <span class="attr">imports</span>: [</span><br><span class="line"> 	...</span><br><span class="line">    MongooseModule.forRoot(<span class="string">&#x27;mongodb://localhost:27017/middle&#x27;</span>),</span><br><span class="line">	]</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>数据库生成mongoose schema,nest带有@Schema()装饰器写在类声明前面,还有一些graphql的装饰器，以便生成 graphQL schemas</p>
+<p><code>nest_gql_upload\src\mongo\material.model.ts</code></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Prop, Schema, SchemaFactory &#125; <span class="keyword">from</span> <span class="string">&#x27;@nestjs/mongoose&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; Field, ObjectType &#125; <span class="keyword">from</span> <span class="string">&#x27;@nestjs/graphql&#x27;</span></span><br><span class="line"></span><br><span class="line">@ObjectType()</span><br><span class="line">@Schema()</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">Material</span> </span>&#123;</span><br><span class="line">  @Field(<span class="function">() =&gt;</span> <span class="built_in">String</span>)</span><br><span class="line">  <span class="attr">_id</span>: MongooseSchema.Types.ObjectId</span><br><span class="line">	...</span><br></pre></td></tr></table></figure>
+
+<p>然后在module里面引入</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// person.module.ts</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; Module &#125; <span class="keyword">from</span> <span class="string">&#x27;@nestjs/common&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; MongooseModule &#125; <span class="keyword">from</span> <span class="string">&#x27;@nestjs/mongoose&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Material, MaterialSchema &#125; <span class="keyword">from</span> <span class="string">&#x27;./Material.model&#x27;</span>;</span><br><span class="line"></span><br><span class="line">@Module(&#123;</span><br><span class="line">  <span class="attr">imports</span>: [</span><br><span class="line">      MongooseModule.forFeature([&#123; <span class="attr">name</span>: Material.name, <span class="attr">schema</span>: MaterialSchema &#125;]),</span><br><span class="line">  	... </span><br><span class="line">    MaterialModule <span class="comment">// 引入material模块</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="GraphQL-CRUD"><a href="#GraphQL-CRUD" class="headerlink" title="GraphQL CRUD"></a>GraphQL CRUD</h3><ol>
+<li><p>resolvers 来定义 <code>query</code>，<code>mutation</code></p>
+</li>
+<li><p>service来写逻辑</p>
+</li>
+<li><p>inputs来定义输入类型</p>
+</li>
+</ol>
+<p><img src="https://image-1257264979.cos.ap-guangzhou.myqcloud.com/typora/image-20210428234715844.png" alt="image-20210428234715844"></p>
+<h3 id="graphql查询验证"><a href="#graphql查询验证" class="headerlink" title="graphql查询验证"></a>graphql查询验证</h3><p>graphql查询测试playground是一个图形化的交互式浏览器内GraphQL IDE</p>
+<p>默认地址<code>localhost:4000/graphql</code></p>
+<p>使用<code>firecamp</code>更强大,它支持文件类型的测试，还可以存一些查询，自动读取字段</p>
+<p><img src="https://image-1257264979.cos.ap-guangzhou.myqcloud.com/typora/image-20210428231512390.png" alt="image-20210428231512390"></p>
+<p>  <a href="https://dev.to/firecamp/here-is-the-fastest-graphql-playground-3bci">https://dev.to/firecamp/here-is-the-fastest-graphql-playground-3bci</a></p>
+<hr>
+<p>cos的缩略图服务：<a href="https://cloud.tencent.com/document/product/583/9736">https://cloud.tencent.com/document/product/583/9736</a></p>
+]]></content>
   </entry>
 </search>
